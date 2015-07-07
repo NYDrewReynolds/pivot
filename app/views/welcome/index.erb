@@ -1,92 +1,91 @@
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class=""></li>
         <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-      </ol>
-      <div class="carousel-inner">
+    </ol>
+    <div class="carousel-inner">
         <div class="item active">
-          <%= image_tag("steak.jpg", :alt => "clam_scallop") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Steak freshly manged</h1>
-              <p>Delicious and meaty</p>
-              <p><a class="btn btn-lg btn-grey1" href="#" role="button">Order one today</a></p>
+            <%= image_tag("steak.jpg", :alt => "clam_scallop") %>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Steak freshly manged</h1>
+                    <p>Delicious and meaty</p>
+                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Order one today</a></p>
+                </div>
             </div>
-          </div>
         </div>
         <div class="item">
-          <%= image_tag("kale.png", :alt => "kale") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Farm Fresh Kale</h1>
-              <p>Kale Chips are delicious</p>
-              <p><a class="btn btn-lg btn-grey1" href="#" role="button">Learn more</a></p>
+            <%= image_tag("kale.png", :alt => "kale") %>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Farm Fresh Kale</h1>
+                    <p>Kale Chips are delicious</p>
+                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Learn more</a></p>
+                </div>
             </div>
-          </div>
         </div>
         <div class="item">
-          <%= image_tag("clam_scallop.png", :alt => "kraut_burger") %>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Jim's Specialty</h1>
-              <p>Jim, insert something witty here</p>
-              <p><a class="btn btn-lg btn-grey1" href="#" role="button">Browse menu items</a></p>
+            <%= image_tag("clam_scallop.png", :alt => "kraut_burger") %>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Jim's Specialty</h1>
+                    <p>Jim, insert something witty here</p>
+                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Browse menu items</a></p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
-
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-      <h1 style="text-align:center">Most Popular Menu Items</h1><br/>
-      <% @top_three.each do |item| %>
-        <div class="row">
-        <div class="col-lg-4">
-          <%= image_tag item.image.url(:medium), class: "img-circle featurette" if item.image_file_name %>
-          <h2><%= item.title %></h2>
-          <p><%= item.description %></p>
-          <p><%= link_to "View details »", item_path(item), class: "btn btn-default" %></p>
-        </div>
-      <% end %>
     </div>
-
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2014 Caussa, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+    <h1 style="text-align:center">Most Popular Menu Items</h1><br/>
+    <% @top_three.each do |item| %>
+        <div class="row">
+            <div class="col-lg-4">
+                <%= image_tag item.image.url(:medium), class: "img-circle featurette" if item.image_file_name %>
+                <h2><%= item.title %></h2>
+                <p><%= item.description %></p>
+                <p><%= link_to "View details »", item_path(item), class: "btn btn-default" %></p>
+            </div>
+    <% end %>
+        </div>
+
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>© 2014 Caussa, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </footer>
+
+</div><!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
 <div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">
-  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">
-    <param name="allowScriptAccess" value="sameDomain">
-    <param name="scale" value="exactfit">
-    <param name="loop" value="false">
-    <param name="menu" value="false">
-    <param name="quality" value="best">
-    <param name="bgcolor" value="#ffffff">
-    <param name="wmode" value="transparent">
-    <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">
+        <param name="allowScriptAccess" value="sameDomain">
+        <param name="scale" value="exactfit">
+        <param name="loop" value="false">
+        <param name="menu" value="false">
+        <param name="quality" value="best">
+        <param name="bgcolor" value="#ffffff">
+        <param name="wmode" value="transparent">
+        <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">
     </object>
-    </div>
+</div>

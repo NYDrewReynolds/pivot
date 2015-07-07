@@ -6,23 +6,7 @@
     <%= print_price(@item.price) %><br/>
     <%= 'Category'.pluralize(@categories.size) %>:
     <%= @categories.map { |category| category.title }.join(', ') %>
-    <br/>
-    <h1>Reviews - Average: <%= @average %></h1>
-    <% @reviews.each do |review| %>
-    <div class="review grid-item">
-      <% if (review.user == current_user) && review.editable? %>
-        <%= link_to "Edit your Review", edit_review_path(@item.id, review.id) %><br/>
-      <% end %>
-      <%= review.user.full_name %> says: <br/>
-      <h4><%= review.title %><br/></h4>
-      <%= review.body %><br/>
-      Rating: <%= review.stars %><br/>
-    </div>
-    <% end %>
-    <% if current_user && current_user.ordered_items.include?(@item.title) %>
-      <%= link_to "New Review", new_review_path(@item.id) %></br>
-    <% end %>
-    <%if current_user.nil?  %>
+   <%if current_user.nil?  %>
       <%= link_to "<< Return to All Menu Items", items_path %>
     <% elsif current_user.is?('admin') %>
       <%= link_to "<< Return to Your Admin Dashboard", admin_path %>

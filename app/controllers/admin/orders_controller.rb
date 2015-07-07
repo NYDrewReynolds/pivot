@@ -47,13 +47,13 @@ class Admin::OrdersController < Admin::BaseController
 		end
 	end
 
-	def updated_at
-		@order.updated_at = params[:updated_at]
-		@order.save
-		respond_to do |format|
-			format.js { @order }
-		end
-	end
+	# def updated_at
+	# 	@order.updated_at = params[:updated_at]
+	# 	@order.save
+	# 	respond_to do |format|
+	# 		format.js { @order }
+	# 	end
+	# end
 
 	def custom_show
 		@orders = Order.where(:status => params[:status])
