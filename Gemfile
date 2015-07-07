@@ -19,6 +19,7 @@ end
 
 group :development do
   gem 'pry-rails', '~> 0.3.2'
+  gem 'brakeman', :require => false
 end
 
 gem 'prawn', github: 'prawnpdf/prawn'

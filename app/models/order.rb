@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
             :city,
             presence: true, if: :delivery?
   validates :state, inclusion: states, if: :delivery?
-  validates :zip, format: { with: /\d{5}\d*/ }, if: :delivery?
+  validates :zip, format: { with: /\A\d{5}\d*\z/ }, if: :delivery?
 
   def delivery?
     exchange == 'delivery'

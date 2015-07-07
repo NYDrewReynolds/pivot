@@ -1,0 +1,146 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'phantomjs@1.8' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose install initial load of /Users/drewreynolds/Documents/Turing/3Module/dinner_dash/package.json
+5 verbose installManyTop reading scoped package data from /Users/drewreynolds/Documents/Turing/3Module/dinner_dash/node_modules/phantomjs/package.json
+6 info package.json phantomjs@1.9.17 No license field.
+7 verbose readDependencies loading dependencies from /Users/drewreynolds/Documents/Turing/3Module/dinner_dash/package.json
+8 silly cache add args [ 'phantomjs@1.8', null ]
+9 verbose cache add spec phantomjs@1.8
+10 silly cache add parsed spec { raw: 'phantomjs@1.8',
+10 silly cache add   scope: null,
+10 silly cache add   name: 'phantomjs',
+10 silly cache add   rawSpec: '1.8',
+10 silly cache add   spec: '>=1.8.0 <1.9.0',
+10 silly cache add   type: 'range' }
+11 silly addNamed phantomjs@>=1.8.0 <1.9.0
+12 verbose addNamed ">=1.8.0 <1.9.0" is a valid semver range for phantomjs
+13 silly addNameRange { name: 'phantomjs', range: '>=1.8.0 <1.9.0', hasData: false }
+14 silly mapToRegistry name phantomjs
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry uri https://registry.npmjs.org/phantomjs
+18 verbose addNameRange registry:https://registry.npmjs.org/phantomjs not in flight; fetching
+19 verbose request uri https://registry.npmjs.org/phantomjs
+20 verbose request no auth needed
+21 info attempt registry request try #1 at 3:02:54 PM
+22 verbose request id 3e3928d65e4f56b0
+23 verbose etag "8LEQ1O62B31VAJHQEAQ8SP4BU"
+24 http request GET https://registry.npmjs.org/phantomjs
+25 http 304 https://registry.npmjs.org/phantomjs
+26 silly get cb [ 304,
+26 silly get   { date: 'Mon, 06 Jul 2015 21:02:55 GMT',
+26 silly get     via: '1.1 varnish',
+26 silly get     'cache-control': 'max-age=60',
+26 silly get     etag: '"8LEQ1O62B31VAJHQEAQ8SP4BU"',
+26 silly get     age: '15',
+26 silly get     connection: 'keep-alive',
+26 silly get     'x-served-by': 'cache-sjc3133-SJC',
+26 silly get     'x-cache': 'HIT',
+26 silly get     'x-cache-hits': '1',
+26 silly get     'x-timer': 'S1436216575.795432,VS0,VE1',
+26 silly get     vary: 'Accept' } ]
+27 verbose etag https://registry.npmjs.org/phantomjs from cache
+28 verbose get saving phantomjs to /Users/drewreynolds/.npm/registry.npmjs.org/phantomjs/.cache.json
+29 silly addNameRange number 2 { name: 'phantomjs', range: '>=1.8.0 <1.9.0', hasData: true }
+30 silly addNameRange versions [ 'phantomjs',
+30 silly addNameRange   [ '0.0.1',
+30 silly addNameRange     '0.0.2',
+30 silly addNameRange     '0.0.3',
+30 silly addNameRange     '0.0.4',
+30 silly addNameRange     '0.0.5',
+30 silly addNameRange     '0.0.6',
+30 silly addNameRange     '0.0.7',
+30 silly addNameRange     '0.0.8',
+30 silly addNameRange     '0.0.9',
+30 silly addNameRange     '0.1.0',
+30 silly addNameRange     '0.1.1',
+30 silly addNameRange     '0.2.0',
+30 silly addNameRange     '0.2.1',
+30 silly addNameRange     '0.2.2',
+30 silly addNameRange     '0.2.3',
+30 silly addNameRange     '0.2.4',
+30 silly addNameRange     '0.2.5',
+30 silly addNameRange     '0.2.6',
+30 silly addNameRange     '1.8.0-1',
+30 silly addNameRange     '1.8.1-1',
+30 silly addNameRange     '1.8.1-2',
+30 silly addNameRange     '1.8.1-3',
+30 silly addNameRange     '1.8.2-0',
+30 silly addNameRange     '1.8.2-1',
+30 silly addNameRange     '1.8.2-2',
+30 silly addNameRange     '1.9.0-0',
+30 silly addNameRange     '1.9.0-1',
+30 silly addNameRange     '1.9.0-2',
+30 silly addNameRange     '1.9.0-3',
+30 silly addNameRange     '1.9.0-4',
+30 silly addNameRange     '1.9.0-5',
+30 silly addNameRange     '1.9.0-6',
+30 silly addNameRange     '1.9.1-0',
+30 silly addNameRange     '1.9.1-2',
+30 silly addNameRange     '1.9.1-3',
+30 silly addNameRange     '1.9.1-4',
+30 silly addNameRange     '1.9.1-5',
+30 silly addNameRange     '1.9.1-6',
+30 silly addNameRange     '1.9.1-7',
+30 silly addNameRange     '1.9.1-8',
+30 silly addNameRange     '1.9.1-9',
+30 silly addNameRange     '1.9.2-0',
+30 silly addNameRange     '1.9.2-1',
+30 silly addNameRange     '1.9.2-2',
+30 silly addNameRange     '1.9.2-3',
+30 silly addNameRange     '1.9.2-4',
+30 silly addNameRange     '1.9.2-5',
+30 silly addNameRange     '1.9.2-6',
+30 silly addNameRange     '1.9.6-0',
+30 silly addNameRange     '1.9.7-1',
+30 silly addNameRange     '1.9.7-3',
+30 silly addNameRange     '1.9.7-4',
+30 silly addNameRange     '1.9.7-5',
+30 silly addNameRange     '1.9.7-6',
+30 silly addNameRange     '1.9.7-7',
+30 silly addNameRange     '1.9.7-8',
+30 silly addNameRange     '1.9.7-9',
+30 silly addNameRange     '1.9.7-10',
+30 silly addNameRange     '1.9.7-11',
+30 silly addNameRange     '1.9.7-12',
+30 silly addNameRange     '1.9.7-13',
+30 silly addNameRange     '1.9.7-14',
+30 silly addNameRange     '1.9.7-15',
+30 silly addNameRange     '1.8.2-3',
+30 silly addNameRange     '1.9.8',
+30 silly addNameRange     '1.9.9',
+30 silly addNameRange     '1.9.10',
+30 silly addNameRange     '1.9.11',
+30 silly addNameRange     '1.9.12',
+30 silly addNameRange     '1.9.13',
+30 silly addNameRange     '1.9.15',
+30 silly addNameRange     '1.9.16',
+30 silly addNameRange     '1.9.17' ] ]
+31 verbose stack Error: No compatible version found: phantomjs@'>=1.8.0 <1.9.0'
+31 verbose stack Valid install targets:
+31 verbose stack ["0.0.1","0.0.2","0.0.3","0.0.4","0.0.5","0.0.6","0.0.7","0.0.8","0.0.9","0.1.0","0.1.1","0.2.0","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.2.6","1.8.0-1","1.8.1-1","1.8.1-2","1.8.1-3","1.8.2-0","1.8.2-1","1.8.2-2","1.9.0-0","1.9.0-1","1.9.0-2","1.9.0-3","1.9.0-4","1.9.0-5","1.9.0-6","1.9.1-0","1.9.1-2","1.9.1-3","1.9.1-4","1.9.1-5","1.9.1-6","1.9.1-7","1.9.1-8","1.9.1-9","1.9.2-0","1.9.2-1","1.9.2-2","1.9.2-3","1.9.2-4","1.9.2-5","1.9.2-6","1.9.6-0","1.9.7-1","1.9.7-3","1.9.7-4","1.9.7-5","1.9.7-6","1.9.7-7","1.9.7-8","1.9.7-9","1.9.7-10","1.9.7-11","1.9.7-12","1.9.7-13","1.9.7-14","1.9.7-15","1.8.2-3","1.9.8","1.9.9","1.9.10","1.9.11","1.9.12","1.9.13","1.9.15","1.9.16","1.9.17"]
+31 verbose stack
+31 verbose stack     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:274:12)
+31 verbose stack     at next (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:253:17)
+31 verbose stack     at setData (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:230:5)
+31 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+31 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+31 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+31 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+31 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
+32 verbose cwd /Users/drewreynolds/Documents/Turing/3Module/dinner_dash
+33 error Darwin 14.3.0
+34 error argv "node" "/usr/local/bin/npm" "install" "phantomjs@1.8"
+35 error node v0.12.4
+36 error npm  v2.10.1
+37 error code ETARGET
+38 error notarget No compatible version found: phantomjs@'>=1.8.0 <1.9.0'
+38 error notarget Valid install targets:
+38 error notarget ["0.0.1","0.0.2","0.0.3","0.0.4","0.0.5","0.0.6","0.0.7","0.0.8","0.0.9","0.1.0","0.1.1","0.2.0","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.2.6","1.8.0-1","1.8.1-1","1.8.1-2","1.8.1-3","1.8.2-0","1.8.2-1","1.8.2-2","1.9.0-0","1.9.0-1","1.9.0-2","1.9.0-3","1.9.0-4","1.9.0-5","1.9.0-6","1.9.1-0","1.9.1-2","1.9.1-3","1.9.1-4","1.9.1-5","1.9.1-6","1.9.1-7","1.9.1-8","1.9.1-9","1.9.2-0","1.9.2-1","1.9.2-2","1.9.2-3","1.9.2-4","1.9.2-5","1.9.2-6","1.9.6-0","1.9.7-1","1.9.7-3","1.9.7-4","1.9.7-5","1.9.7-6","1.9.7-7","1.9.7-8","1.9.7-9","1.9.7-10","1.9.7-11","1.9.7-12","1.9.7-13","1.9.7-14","1.9.7-15","1.8.2-3","1.9.8","1.9.9","1.9.10","1.9.11","1.9.12","1.9.13","1.9.15","1.9.16","1.9.17"]
+38 error notarget
+38 error notarget This is most likely not a problem with npm itself.
+38 error notarget In most cases you or one of your dependencies are requesting
+38 error notarget a package version that doesn't exist.
+39 verbose exit [ 1, true ]

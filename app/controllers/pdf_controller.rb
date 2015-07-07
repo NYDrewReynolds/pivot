@@ -1,7 +1,7 @@
 class PdfController < ApplicationController
   def menu
-    redirect_to root_path unless params[:reference] == "pdf" || "html" &&
-                                 params[:disposition] == "inline" || "attachment"
+    redirect_to root_path unless params[:reference] == "pdf" || params[:reference] == "html" &&
+                                 params[:disposition] == "inline" || params[:disposition] == "attachment"
 
     respond_to do |format|
       format.pdf do
