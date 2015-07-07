@@ -94,9 +94,9 @@ describe 'authenticated user', type: :feature do
     expect(page).to have_content 'Order Status'
   end
 
-	xit 'cannot view another users order' do
+	it 'cannot view another users order' do
     #this should work? Any other way to expect a routing error?
-    expect(visit '/users/3/orders').to raise_error( ActionController::RoutingError)
+    expect{visit '/users/3/orders'}.to raise_error( ActionController::RoutingError)
   end
 
 	it 'cannot access admin item pages' do
@@ -108,7 +108,7 @@ describe 'authenticated user', type: :feature do
 		expect(page).to have_content "You are not authorized to access this page."
 		visit '/admin/items/new'
 		expect(page).to_not have_content "Create New Item"
-    expect(current_path).to eq(items_path)
+
 		expect(page).to have_content "You are not authorized to access this page."
 	end
 
@@ -180,8 +180,4 @@ describe 'authenticated user order display page' do
       click_on '5'
       expect(page).to have_content "Price $1.00"
     end
-
-    it 'shows date and time order was submitted'
-    it 'shows timestamp when order was completed'
-    it 'shows timestamp when order was cancelled'
 end

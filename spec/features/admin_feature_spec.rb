@@ -60,11 +60,6 @@ describe 'admin dashboard' do
 		expect(page).to have_content("Your item has been successfully added to the menu!")
 	end
 
-	xit 'can create item listings with photo' do
-		visit 'items/4/edit'
-		expect(page).to have_css '#image'
-	end
-
 	it 'can edit item listings' do
 		small_plates_category = create(:category, title: 'Small Plates')
 		create(:item, id: 1, title: 'Second Food', categories: [small_plates_category])

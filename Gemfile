@@ -13,7 +13,6 @@ end
 group :test do
   gem 'capybara', '~> 2.4.3'
   gem 'poltergeist'
-  gem "codeclimate-test-reporter", require: nil
   gem 'database_cleaner'
 end
 
@@ -25,7 +24,7 @@ end
 gem 'prawn', github: 'prawnpdf/prawn'
 gem 'prawn-table', github: 'prawnpdf/prawn-table'
 gem 'figaro'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.11'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'

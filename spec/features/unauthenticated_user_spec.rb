@@ -83,7 +83,7 @@ describe 'unauthenticated user', type: :feature do
   it "cannot view another user's private data" do
     user = create(:user, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf')
     visit edit_user_path(user)
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(root_path)
     expect(page).to have_content('You are not authorized to access this page')
   end
 

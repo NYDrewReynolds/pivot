@@ -1,13 +1,9 @@
 class WelcomeController < ApplicationController
 
   def index
-  	@top_three=Item.all.sort_by{ |item| item.average_rating }.reverse[0..2]
+  	@top_three=Item.all.limit(3)
   end
 
   def about
-  end
-
-  def code
-  	redirect_to "https://github.com/ianderse/dinner_dash"
   end
 end
