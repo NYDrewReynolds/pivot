@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
 
   def index
-  	@top_three=Item.all.limit(3)
+  	@random_three = Restaurant.all.sample(3)
+    @restaurants= Restaurant.all
   end
 
   def about

@@ -1,7 +1,7 @@
 <div id = "categories">
 <ul id='category_list'>
 <h3>Categories</h3>
-<% @categories.each do |category| %>
+<% @restaurant.categories.each do |category| %>
   <li><a href="#" id="<%= category.to_s %>" class="filter" data-no-turbolink><%= category.title %></a>
   </li>
 <% end %>
@@ -10,10 +10,10 @@
 
 <div id="masonry-grid">
   <div class="grid-sizer">
-    <% @items.each do |item| %>
+    <% @restaurant.items.each do |item| %>
       <div class="grid-item <%= item.categories.reduce('') { |sum, category| sum + category.to_s + ' '}.strip %>" id="item_<%= item.id %>">
         <%= image_tag item.image.url(:medium) if item.image_file_name %><br/>
-        <%= link_to item.title, item_path(item) %><br/>
+        <%= link_to item.title, restaurant_item_path(@restaurant, item) %><br/>
         <div class="item-description"><%= item.description %></div>
         <%= print_price(item.price) %><br/>
         <%= form_tag(cart_add_item_path(item), method: :patch, remote: true) do %>

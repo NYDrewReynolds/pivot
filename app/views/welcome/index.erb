@@ -12,9 +12,9 @@
             <%= image_tag("steak.jpg", :alt => "clam_scallop") %>
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Steak freshly manged</h1>
-                    <p>Delicious and meaty</p>
-                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Order one today</a></p>
+                    <h1><%= @random_three[0].name %></h1>
+                    <p><%= @random_three[0].cuisine %></p>
+                    <p><%= link_to "Visit Restaurant", restaurant_path(@random_three[0]), class: "btn btn-lg btn-grey1" %></p>
                 </div>
             </div>
         </div>
@@ -22,9 +22,9 @@
             <%= image_tag("kale.png", :alt => "kale") %>
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Farm Fresh Kale</h1>
-                    <p>Kale Chips are delicious</p>
-                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Learn more</a></p>
+                    <h1><%= @random_three[1].name %></h1>
+                    <p><%= @random_three[1].cuisine %></p>
+                  <p><%= link_to "Visit Restaurant", restaurant_path(@random_three[1]), class: "btn btn-lg btn-grey1" %></p>
                 </div>
             </div>
         </div>
@@ -32,9 +32,9 @@
             <%= image_tag("clam_scallop.png", :alt => "kraut_burger") %>
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Jim's Specialty</h1>
-                    <p>Jim, insert something witty here</p>
-                    <p><a class="btn btn-lg btn-grey1" href="#" role="button">Browse menu items</a></p>
+                    <h1><%= @random_three[2].name %></h1>
+                  <p><%= @random_three[2].cuisine %></p>
+                  <p><%= link_to "Visit Restaurant", restaurant_path(@random_three[2]), class: "btn btn-lg btn-grey1" %></p>
                 </div>
             </div>
         </div>
@@ -51,21 +51,16 @@
 
 <div class="container marketing">
     <h1 style="text-align:center">Most Popular Menu Items</h1><br/>
-    <% @top_three.each do |item| %>
+    <% @restaurants.each do |restaurant| %>
         <div class="row">
             <div class="col-lg-4">
-                <%= image_tag item.image.url(:medium), class: "img-circle featurette" if item.image_file_name %>
-                <h2><%= item.title %></h2>
-                <p><%= item.description %></p>
-                <p><%= link_to "View details »", item_path(item), class: "btn btn-default" %></p>
+                <%#= image_tag restaurant.image.url(:medium), class: "img-circle featurette" if item.image_file_name %>
+                <h2><%= restaurant.name %></h2>
+                <p><%= restaurant.cuisine %></p>
+                <p><%= link_to "Visit Restaurant", restaurant_path(restaurant), class: "btn btn-default" %></p>
             </div>
     <% end %>
         </div>
-
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>© 2014 Caussa, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-        </footer>
 
 </div><!-- /.container -->
 
