@@ -3,7 +3,7 @@
     <div class="panel-heading"><h1>Your Cart</h1></div>
       <table class="table">
         <tbody>
-        <% cart.items_to_quantities.each do |item, quantity| %>
+        <% cart.item_ids_to_quantities.each do |item, quantity| %>
           <tr id='<%= "item_#{item.id}" %>'>
             <td><%= item.title %></td>
               <td><%= form_tag(cart_update_quantity_path(item), method: :patch, remote: true, style: 'display:inline;') do %>

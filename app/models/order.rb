@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
   end
 
   def populate(cart, current_user)
-    cart.items_to_quantities.to_h.each do |item, quantity|
+    cart.item_ids_to_quantities.to_h.each do |item, quantity|
       quantity.times { self.items << item }
     end
 
