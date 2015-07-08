@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Your account was successfully created!"
       session[:user_id] = @user.id
-      redirect_to items_path
+      redirect_to root_path
     else
       flash[:error] = "Please be sure to include a name and a valid email."
       render :new

@@ -57,7 +57,7 @@
                 <%#= image_tag restaurant.image.url(:medium), class: "img-circle featurette" if item.image_file_name %>
                 <h2><%= restaurant.name %></h2>
                 <p><%= restaurant.cuisine %></p>
-                <p><%= link_to "Visit Restaurant", restaurant_path(restaurant), class: "btn btn-default" %></p>
+                <p><%= link_to "Visit Restaurant", restaurant_path(restaurant), class: "btn btn-default", id:"#{restaurant.name.parameterize}" %></p>
             </div>
     <% end %>
         </div>

@@ -10,7 +10,7 @@
 
 <div id="masonry-grid">
   <div class="grid-sizer">
-    <% @restaurant.items.each do |item| %>
+    <% @restaurant.items.active.each do |item| %>
       <div class="grid-item <%= item.categories.reduce('') { |sum, category| sum + category.to_s + ' '}.strip %>" id="item_<%= item.id %>">
         <%= image_tag item.image.url(:medium) if item.image_file_name %><br/>
         <%= link_to item.title, restaurant_item_path(@restaurant, item) %><br/>

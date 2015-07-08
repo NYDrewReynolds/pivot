@@ -3,11 +3,6 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show]
 
-  def index
-    @items = Item.active
-    @categories = Category.all
-  end
-
   def show
     @categories = @item.categories
   end

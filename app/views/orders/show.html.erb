@@ -7,7 +7,7 @@
 				<b>Items Ordered </b>
 				<div class="items">
 				<% item = items.first %>
-				<%= link_to item.title, item_path(item) %> <%= items.size %> <%= print_price(item.price * items.size) %><br/>
+				<%= link_to item.title,restaurant_item_path(@restaurant, item) %> <%= items.size %> <%= print_price(item.price * items.size) %><br/>
 			<% end %>
 		</div>
 			<b>Price</b>
