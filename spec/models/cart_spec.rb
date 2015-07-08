@@ -11,7 +11,7 @@ RSpec.describe Cart, type: :model do
     create(:item, id: 2)
     create(:item, id: 3)
 
-    result = cart.items_to_quantities
+    result = cart.item_ids_to_quantities
     expect(result).to eq([[Item.find(1), 1], [Item.find(2), 2], [Item.find(3), 1]])
   end
 
