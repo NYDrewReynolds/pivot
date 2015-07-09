@@ -16,6 +16,7 @@ class Item < ActiveRecord::Base
 
   scope :active, -> {where(active: true)}
 
+
   def active?
    self.active == true
   end

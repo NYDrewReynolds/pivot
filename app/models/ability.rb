@@ -10,6 +10,9 @@ class Ability
       can :manage, Category, restaurant_id: user.restaurant.id
       can :manage, Order
       can :manage, User, restaurant_id: user.restaurant.id
+      can :read, Item
+      can :read, Category
+      can :read, Order
     elsif user.is? :user
       can :read, Item
       can :read, Category

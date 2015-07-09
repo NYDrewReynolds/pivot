@@ -21,6 +21,7 @@ group :development do
   gem 'brakeman', :require => false
 end
 
+gem 'friendly_id', '~> 5.1.0'
 gem 'prawn', github: 'prawnpdf/prawn'
 gem 'prawn-table', github: 'prawnpdf/prawn-table'
 gem 'figaro'

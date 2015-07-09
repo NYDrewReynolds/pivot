@@ -59,7 +59,7 @@ class Admin::ItemsController < Admin::BaseController
     end
 
     def set_item
-      @item = current_restaurant.items.find(params[:id])
+      @item = current_restaurant.items.friendly.find(params[:id])
     end
 
 end
