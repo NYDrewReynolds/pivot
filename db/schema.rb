@@ -79,10 +79,7 @@ ActiveRecord::Schema.define(version: 20150709001825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cuisine"
-    t.integer  "user_id"
   end
-
-  add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      default: ""
@@ -93,6 +90,9 @@ ActiveRecord::Schema.define(version: 20150709001825) do
     t.datetime "updated_at"
     t.string   "password_digest",                  null: false
     t.string   "role",            default: "user"
+    t.integer  "restaurant_id"
   end
+
+  add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
 end

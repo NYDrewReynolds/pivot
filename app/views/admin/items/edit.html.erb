@@ -3,6 +3,6 @@
   <br>
   <%= render 'edit_form' %>
   <%= link_to "Undo your changes", request.path, class: "btn btn-primary btn-lg" %>
-  <%= link_to "Cancel", admin_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Cancel", restaurant_admin_path(current_restaurant), class: "btn btn-primary btn-lg" %>
   <%= render 'delete_form' %>
 </div>

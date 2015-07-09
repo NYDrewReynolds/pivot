@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @item.title.capitalize %>
+  <h1><%= @item.title.capitalize %></h1>
   <table>
     <tr>
       <th>Picture</th>
@@ -19,6 +19,6 @@
     </tr>
   </table>
   <%if current_user.is?('admin')  %>
-      <%= link_to "<< Return to Your Admin Dashboard", admin_path %>
+      <%= link_to "<< Return to Your Admin Dashboard", restaurant_admin_path(current_restaurant) %>
   <% end  %>
 </div>

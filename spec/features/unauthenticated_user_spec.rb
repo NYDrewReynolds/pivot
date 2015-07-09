@@ -92,13 +92,13 @@ describe 'unauthenticated user', type: :feature do
   end
 
   it "cannot view the administrator screens or use administrator functionality" do
-    visit '/admin'
+    visit restaurant_admin_dashboard_index_path(@restaurant_1)
     expect(current_path).to eq(root_path)
     expect(page).to have_content('You are not authorized to access this page')
   end
 
   it "cannot make themselves an administrator" do
-    visit new_user_path
+    visit new_restaurant_admin_user_path(@restaurant_1)
     expect(page).to_not have_content('Role')
   end
 

@@ -1,4 +1,4 @@
-<%= form_for(@item, html: {multipart: true}, :url => admin_item_path(@item) ) do |f| %>
+<%= form_for(@item, html: {multipart: true}, :url => restaurant_admin_item_path(current_restaurant, @item) ) do |f| %>
   <%= label_tag 'Item Title' %><br><%= f.text_field :title, class: "col-md-12"%><br/><br/>
   <%= label_tag 'Description' %><br><%= f.text_field :description, class: "col-md-12" %><br/><br/>
   <%= label_tag 'Item Price'%>&nbsp<%= f.text_field :price %><br/><br/>

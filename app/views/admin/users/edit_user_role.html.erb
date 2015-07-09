@@ -1,6 +1,6 @@
 <div class="admin-user">
   <div class="container">
-    <%= form_for @user, :url => admin_user_path(@user), method: "patch" do |f| %>
+    <%= form_for @user, :url => restaurant_admin_user_path(current_restaurant, @user), method: "patch" do |f| %>
         First Name: <%= @user.first_name %><br/><br/>
         Last Name: <%= @user.last_name %><br/><br/>
         Nick Name: <%= @user.nickname %><br/><br/>
@@ -13,7 +13,7 @@
     <%= link_to "Undo your changes", request.path, class: "btn btn-primary btn-lg" %>
     <%= link_to "Cancel", admin_path, class: "btn btn-primary btn-lg" %>
 
-    <%= form_for(@user, html: {multipart: true, method: 'delete'}, :url => admin_user_path(@user) ) do |f| %>
+    <%= form_for(@user, html: {multipart: true, method: 'delete'}, :url => restaurant_admin_user_path(current_restaurant, @user) ) do |f| %>
      <%= f.submit "Delete This Account", class: 'btn btn-danger btn-lg' %>
     <% end %>
   </div>

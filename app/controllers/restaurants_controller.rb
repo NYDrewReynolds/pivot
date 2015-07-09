@@ -10,9 +10,9 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(valid_params)
-    @restaurant.user_id = current_user.id
 
     if @restaurant.save
+      current_user.update(restaurant_id: @restaurant.id, role: 'admin')
       redirect_to restaurant_path(@restaurant)
       flash[:notice] = "Your restaurant has been successfully created!"
     else
