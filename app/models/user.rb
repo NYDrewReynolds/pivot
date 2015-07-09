@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_one :restaurant
+
   has_many :orders
 
   has_secure_password

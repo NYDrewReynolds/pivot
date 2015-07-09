@@ -5,19 +5,25 @@ Capybara.default_wait_time = 5
 describe 'unauthenticated user', type: :feature do
   include Capybara::DSL
 
+  before do
+    @restaurant_1 = create(:restaurant, name: "Pizza Palace", cuisine: "food")
+    create(:restaurant, name: "Jorges Garden", cuisine: "mexican")
+    create(:restaurant, name: "Sergios", cuisine: "italian")
+    category = Category.create(title: 'Small Plates', restaurant_id: @restaurant_1.id)
+    @item = Item.create(title: 'Second Food', category_ids: category.id, description: "foodn' shit", price: 10, restaurant_id: @restaurant_1.id)
+  end
+
   it "can browse all items" do
     visit '/'
-    click_link 'Menu'
-    expect(current_path).to eq(items_path)
-    expect(page).to have_content 'Menu'
+    click_link 'pizza-palace'
+    expect(current_path).to eq(restaurant_path(@restaurant_1))
+    expect(page).to have_content 'Pizza Palace'
   end
 
   it "can browse items by category", js: true do
-    small_plates_category = create(:category, title: 'Small Plates')
-    create(:item, title: 'Second Food', categories: [small_plates_category])
     visit '/'
-    click_link 'Menu'
-    expect(page).to have_content 'Menu'
+    click_link 'pizza-palace'
+    expect(page).to have_content 'Pizza Palace'
     click_link 'Small Plates'
     expect(page).to have_content 'Small Plates'
     expect(page).to have_content 'Second Food'
@@ -35,7 +41,7 @@ describe 'unauthenticated user', type: :feature do
     fill_in 'Password confirmation', with: 'jsmithers@example.com'
     click_button 'Create Account'
     expect(page).to have_content "Your account was successfully created!"
-    expect(page).to have_content 'Menu'
+    expect(page).to have_content "Welcome jsmithers1000!"
   end
 
   it "cannot create an account with invalid data" do
@@ -48,15 +54,13 @@ describe 'unauthenticated user', type: :feature do
   end
 
   it "can view a single item" do
-    small_plates_category = create(:category, title: 'Small Plates')
-    item = create(:item, title: 'Second Food', categories: [small_plates_category])
     visit '/'
-    click_on 'Menu'
+    click_link 'pizza-palace'
     within(".grid-item") do
       click_on 'Second Food'
     end
-    expect(current_path).to eq item_path(item)
-    expect(page).to have_content "#{item.title}"
+    expect(current_path).to eq restaurant_item_path(@restaurant_1, @item)
+    expect(page).to have_content "#{@item.title}"
   end
 
   it "can login" do
@@ -66,7 +70,7 @@ describe 'unauthenticated user', type: :feature do
     fill_in 'password', with: "#{user.password}"
     click_on 'login'
     expect(page).to have_content 'Welcome knownothing!'
-    expect(current_path).to eq items_path
+    expect(current_path).to eq root_path
     expect(page).to_not have_css '#email'
   end
 
@@ -89,7 +93,7 @@ describe 'unauthenticated user', type: :feature do
 
   it "cannot view the administrator screens or use administrator functionality" do
     visit '/admin'
-    expect(current_path).to eq(items_path)
+    expect(current_path).to eq(root_path)
     expect(page).to have_content('You are not authorized to access this page')
   end
 
@@ -101,10 +105,8 @@ describe 'unauthenticated user', type: :feature do
 
   context "when using the cart", js: true do
     before do
-      create(:item, title: 'red t-shirt')
-      visit items_path
+      visit restaurant_path(@restaurant_1)
       click_on 'Add to cart'
-      expect(page).to have_content 'Item added to your cart!'
     end
 
     it "can add an item to cart" do
@@ -114,7 +116,7 @@ describe 'unauthenticated user', type: :feature do
       end
       expect(current_path).to eq(cart_edit_path)
       expect(page).to have_content('Your Cart')
-      expect(page).to have_content('red t-shirt')
+      expect(page).to have_content('Second Food')
     end
 
     it "can add a multiple of the same item to cart" do
@@ -138,7 +140,7 @@ describe 'unauthenticated user', type: :feature do
 
     it "can remove an item from the cart" do
       visit cart_edit_path
-      find("#remove_item").click
+       find("#remove_item").click
       within('.cart-container') do
         expect(page).to have_content '0'
       end
@@ -163,7 +165,7 @@ describe 'unauthenticated user', type: :feature do
       fill_in 'password', with: "#{user.password}"
       click_on 'login'
       expect(page).to have_content 'Welcome knownothing!'
-      expect(current_path).to eq items_path
+      expect(current_path).to eq root_path
       within('.cart-container') do
         expect(page).to have_content '1'
       end
@@ -172,17 +174,6 @@ describe 'unauthenticated user', type: :feature do
     it 'cannot checkout' do
       visit cart_edit_path
       expect(page).to have_content 'Login To Checkout'
-    end
-  end
-
-  describe "What's good here?" do
-    it "can see the posted reviews" do
-      visit '/items/1'
-      expect(page).to have_content 'Reviews'
-    end
-    it 'can see the average of the ratings' do
-      visit '/items/1'
-      expect(page).to have_content "Average"
     end
   end
 end
