@@ -6,7 +6,10 @@ class Ability
     user ||= User.new(role: nil)
 
     if user.is? :admin
-      can :manage, :all
+      can :manage, Item, restaurant_id: user.restaurant.id
+      can :manage, Category, restaurant_id: user.restaurant.id
+      can :manage, Order
+      can :manage, User, restaurant_id: user.restaurant.id
     elsif user.is? :user
       can :read, Item
       can :read, Category
@@ -19,5 +22,4 @@ class Ability
       can :create, User
     end
   end
-
 end

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_one :restaurant
+  belongs_to :restaurant
 
   has_many :orders
 

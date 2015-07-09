@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
       session[:cart] = cart.to_a
     end
 
+  def current_restaurant
+    @current_restaurant ||= current_user.restaurant
+  end
+
+  helper_method :current_restaurant
+
 end

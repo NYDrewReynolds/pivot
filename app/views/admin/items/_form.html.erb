@@ -1,4 +1,4 @@
-<%= form_for(@item, html: {multipart: true}, :url => admin_items_path ) do |f| %>
+<%= form_for(@item, html: {multipart: true}, :url => restaurant_admin_items_path(current_user) ) do |f| %>
   <p>
     <%= f.label :title %><br/>
     <%= f.text_field :title, autofocus: true %>
@@ -24,6 +24,6 @@
 
   <p>
     <%= f.submit %>
-    <%= link_to "Cancel", admin_path %>
+    <%= link_to "Cancel", restaurant_admin_dashboard_index_path(current_user) %>
   </p>
 <% end %>

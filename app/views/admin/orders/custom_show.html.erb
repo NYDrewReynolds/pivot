@@ -1,5 +1,5 @@
 <h2><%= @status.capitalize %> Orders in System</h2>
-<h4><%= link_to "All Orders", admin_orders_path %></h4>
+<h4><%= link_to "All Orders", restaurant_admin_orders_path(current_restaurant) %></h4>
 <table class = "table table-striped">
   <thead>
     <tr>
@@ -15,13 +15,13 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to order.id, edit_admin_order_path(order) %></td>
+      <td><%= link_to order.id, edit_restaurant_admin_order_path(current_restaurant, order) %></td>
       <td><%= (order.created_at).to_formatted_s(:long) %></td>
       <td><%= (order.updated_at).to_formatted_s(:long) %></td>
       <td><%= order.user.first_name %> </td>
       <td><%= print_price(order_price(order.items)) %> </td>
       <td><%= order.status %> </td>
-      <td><%= link_to "View/Edit Order", edit_admin_order_path(order), class: "btn btn-info" %>
+      <td><%= link_to "View/Edit Order", edit_restaurant_admin_order_path(current_restaurant, order), class: "btn btn-info" %>
     </tr>
     <% end %>
   </tbody>
