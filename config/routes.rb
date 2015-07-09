@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get   '/orders/:status', to: 'orders#custom_show', as: 'order_custom_show'
   end
 
-  resources :restaurants, only: [:show] do
+  resources :restaurants, except: [:index] do
     resources :items, only: [:show]
   end
   resources :users, except: [:index, :show]

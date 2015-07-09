@@ -2,7 +2,12 @@
 
 <div class="row">
   <div class="col-md-1 col-md-offset-5">
-		<%= render 'form' %>
-	</div>
+    <%= render 'form' %>
+  </div>
   <%= link_to 'Your Orders', user_orders_path %>
+  <% if current_user.restaurant %>
+      <%= link_to "Edit Restaurant Details", edit_restaurant_path(current_user.restaurant), style: "padding-left: 10px" %>
+  <% else %>
+      <%= link_to "Create a Restaurant", new_restaurant_path, style: "padding-left: 10px" %>
+  <% end %>
 </div>
