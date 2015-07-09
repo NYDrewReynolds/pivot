@@ -31,8 +31,8 @@
         <% @order_items.each do |item, quantity| %>
           <tbody>
           <tr id='<%= "item_#{item.id}" %>'>
-            <td><%= link_to item.title, item_path(item) %></td>
-              <td><%= form_tag(admin_order_update_quantity_path(current_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
+            <td><%= link_to item.title, restaurant_admin_item_path(current_restaurant, item) %></td>
+              <td><%= form_tag(restaurant_admin_order_update_quantity_path(current_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
                 <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
               <%= submit_tag "Update Quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %></td>
               <td><%= print_price(item.price) %></td>

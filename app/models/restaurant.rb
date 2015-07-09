@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   extend FriendlyId
+  has_many :orders
   has_many :users
   has_many :items
   has_many :categories
