@@ -17,7 +17,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><%= link_to "Home", root_path %></li>
             <li class="active"><%= link_to "About", about_path %></li>
-            <% if current_user.is?('admin') %>
+            <% if current_user && current_user.is?('admin') %>
                   <li class="active"><%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(current_restaurant) %></li>
             <% end %>
           </ul>
