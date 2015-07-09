@@ -1,14 +1,10 @@
 <div id="masonry-grid" style="text-align:center">
-  <h1><%= @item.title.capitalize %></h1>
+    <h1><%= @item.title.capitalize %></h1>
     <%= image_tag @item.image.url(:medium) if @item.image_file_name != nil %><br/>
     <%= @item.title %><br/>
     <%= @item.description %><br/>
     <%= print_price(@item.price) %><br/>
     <%= 'Category'.pluralize(@categories.size) %>:
     <%= @categories.map { |category| category.title }.join(', ') %>
-   <%if current_user.nil?  %>
-      <%= link_to "<< Return to Restaurant", :back %>
-    <% elsif current_user.is?('admin') %>
-      <%= link_to "<< Return to Your Admin Dashboard", admin_path %>
-    <% end  %>
+    <%= link_to "<< Return to Restaurant", :back %>
 </div>

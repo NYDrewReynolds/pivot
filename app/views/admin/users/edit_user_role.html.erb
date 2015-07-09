@@ -11,7 +11,7 @@
     <% end %>
 
     <%= link_to "Undo your changes", request.path, class: "btn btn-primary btn-lg" %>
-    <%= link_to "Cancel", admin_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Cancel", restaurant_admin_dashboard_index_path(current_restaurant), class: "btn btn-primary btn-lg" %>
 
     <%= form_for(@user, html: {multipart: true, method: 'delete'}, :url => restaurant_admin_user_path(current_restaurant, @user) ) do |f| %>
      <%= f.submit "Delete This Account", class: 'btn btn-danger btn-lg' %>
