@@ -129,47 +129,47 @@ describe 'authenticated user', type: :feature do
 
 end
 
-# describe 'authenticated user order display page' do
-#     before do
-#       user = create(:user, id: 1, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf')
-#       @restaurant_1 = create(:restaurant, name: "Pizza Palace", cuisine: "food")
-#       create(:restaurant, name: "Jorges Garden", cuisine: "mexican")
-#       create(:restaurant, name: "Sergios", cuisine: "italian")
-#       category = Category.create(title: 'Small Plates', restaurant_id: @restaurant_1.id)
-#       @item = Item.create(title: 'Second Food', category_ids: category.id, description: "foodn' shit", price: 10, restaurant_id: @restaurant_1.id)
-#       @order = create(:order, user_id: 1, items: [@item] )
-#       visit '/'
-#       fill_in 'email', with: "#{user.email}"
-#       fill_in 'password', with: "#{user.password}"
-#       click_on 'login'
-#       click_on 'My Profile'
-#       click_on 'Your Orders'
-#     end
-#
-#     it 'displays item with quantity ordered' do
-#       click_on '1'
-#       expect(page).to have_content "Second Food"
-#       expect(page).to have_content "1"
-#     end
-#
-#     it 'shows line-item subtotals' do
-#       click_on '2'
-#       expect(page).to have_content 'Second Food 1 $1.00'
-#     end
-#
-#     it 'links to each item description' do
-#       click_on '3'
-#       click_on 'Second Food'
-#       expect(page).to have_content "Second Food"
-#     end
-#     it 'shows current status of an order' do
-#       @order.status = 'pending'
-#       click_on '4'
-#       expect(page).to have_content "Order Status"
-#     end
-#
-#     it 'shows total order price' do
-#       click_on '5'
-#       expect(page).to have_content "Price $1.00"
-#     end
-# end
+describe 'authenticated user order display page' do
+    before do
+      user = create(:user, id: 1, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf')
+      @restaurant_1 = create(:restaurant, name: "Pizza Palace", cuisine: "food")
+      create(:restaurant, name: "Jorges Garden", cuisine: "mexican")
+      create(:restaurant, name: "Sergios", cuisine: "italian")
+      category = Category.create(title: 'Small Plates', restaurant_id: @restaurant_1.id)
+      @item = Item.create(title: 'Second Food', category_ids: category.id, description: "foodn' shit", price: 10, restaurant_id: @restaurant_1.id)
+      @order = create(:order, user_id: 1, items: [@item] )
+      visit '/'
+      fill_in 'email', with: "#{user.email}"
+      fill_in 'password', with: "#{user.password}"
+      click_on 'login'
+      click_on 'My Profile'
+      click_on 'Your Orders'
+    end
+
+    it 'displays item with quantity ordered' do
+      click_on '1'
+      expect(page).to have_content "Second Food"
+      expect(page).to have_content "1"
+    end
+
+    it 'shows line-item subtotals' do
+      click_on '2'
+      expect(page).to have_content 'Second Food 1 $10.00'
+    end
+
+    it 'links to each item description' do
+      click_on '3'
+      click_on 'Second Food'
+      expect(page).to have_content "Second Food"
+    end
+    it 'shows current status of an order' do
+      @order.status = 'pending'
+      click_on '4'
+      expect(page).to have_content "Order Status"
+    end
+
+    it 'shows total order price' do
+      click_on '5'
+      expect(page).to have_content "Price $10.00"
+    end
+end
