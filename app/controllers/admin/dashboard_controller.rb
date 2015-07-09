@@ -1,7 +1,7 @@
 class Admin::DashboardController < Admin::BaseController
 
   def index
-    @items = Item.all
+    @items = current_restaurant.items
   end
 
 end

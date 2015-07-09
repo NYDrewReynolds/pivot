@@ -2,8 +2,8 @@ class Admin::ItemsController < Admin::BaseController
   before_action :set_item, except: [:new, :create]
 
   def new
-    @item = Item.new
-    @categories = Category.all
+    @item = current_restaurant.items.new
+    @categories = current_restaurant.categories
   end
 
   def show
@@ -11,18 +11,18 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def edit
-    @categories = Category.all
+    @categories = current_restaurant.categories
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_restaurant.items.new(item_params)
     @categories = params[:categories] || []
     @categories.each do |category|
-      category = Category.find(category)
+      category = current_restaurant.categories.find(category)
       @item.categories << category
     end
     if @item.save
-      redirect_to admin_path
+      redirect_to restaurant_admin_dashboard_index_path(current_restaurant)
       flash[:notice] = "Your item has been successfully added to the menu!"
     else
       redirect_to :back
@@ -32,20 +32,20 @@ class Admin::ItemsController < Admin::BaseController
 
   def destroy
     @item.destroy
-    redirect_to admin_path
+    redirect_to restaurant_admin_dashboard_index_path(current_restaurant)
   end
 
   def update
     @categories = params[:categories] || []
     @item.categories.clear
     @categories.each do |category|
-      category = Category.find(category)
+      category = current_restaurant.categories.find(category)
       @item.categories << category
     end
 
     if @item.update(item_params)
       flash[:notice] = "Your item has been successfully updated!"
-      redirect_to admin_item_path(@item)
+      redirect_to restaurant_admin_item_path(current_restaurant, @item)
     else
       redirect_to :back
       flash[:notice] = "Error saving item."
@@ -59,7 +59,7 @@ class Admin::ItemsController < Admin::BaseController
     end
 
     def set_item
-      @item = Item.find(params[:id])
+      @item = current_restaurant.items.find(params[:id])
     end
 
 end

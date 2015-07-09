@@ -2,17 +2,17 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, except: [:index, :new, :create]
 
   def index
-    @users = User.all
+    @users = current_restaurant.users.all
   end
 
   def new
-    @user = User.new
+    @user = current_restaurant.users.new
   end
 
   def create
-    @user = User.new(user_params)
+    @user = current_restaurant.users.new(user_params)
     if @user.save
-      redirect_to admin_users_path
+      redirect_to restaurant_admin_dashboard_index_path
       flash[:notice] = "You successfully created #{@user.role} #{@user.full_name}!"
     else
       render :new
@@ -25,7 +25,7 @@ class Admin::UsersController < Admin::BaseController
   def update
     if @user.update(user_params)
       flash[:notice] = "Your account information has been successfully updated!"
-      redirect_to admin_path
+      redirect_to restaurant_admin_dashboard_index_path
     else
       redirect_to :back
       flash[:notice] = "Error saving your new information."
@@ -34,7 +34,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     @user.destroy
-    redirect_to admin_path
+    redirect_to restaurant_admin_dashboard_index_path
   end
 
   def edit
@@ -48,7 +48,7 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def set_user
-      @user = User.find(params[:id])
+      @user = current_restaurant.users.find(params[:id])
     end
 
 end
