@@ -97,18 +97,18 @@ describe 'authenticated user', type: :feature do
   end
 
 	it 'cannot access admin item pages' do
-		visit '/admin/items/1/edit'
+		visit edit_restaurant_admin_item_path(@restaurant_1, @item)
 		expect(page).to_not have_content "Edit Item"
 		expect(current_path).to eq(root_path)
 		expect(page).to have_content "You are not authorized to access this page."
-		visit '/admin/items/new'
+		visit new_restaurant_admin_item_path(@restaurant_1)
 		expect(page).to_not have_content "Create New Item"
 
 		expect(page).to have_content "You are not authorized to access this page."
 	end
 
   it 'cannot access admin user pages' do
-    visit '/admin/users/1/edit'
+    visit edit_restaurant_admin_user_path(@restaurant_1, 1)
     expect(page).to_not have_content "User or Admin?"
   end
 
