@@ -1,0 +1,14 @@
+records:
+  - sprig_id: 1
+    name: 'Caussa'
+    cuisine: 'Pretentious'
+  - sprig_id: 2
+    name: 'Pizza Palace'
+    cuisine: 'Pizza'
+  - sprig_id: 3
+    name: "Jeff's Joint"
+    cuisine: "Hoppin' eats n' tasty treats"
+    slug_name: 'jeffs-joint'
+  - sprig_id: 4
+    name: 'Taco Haus'
+    cuisine: 'Tacos!!!!!!!'

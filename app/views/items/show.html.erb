@@ -1,6 +1,6 @@
 <div id="masonry-grid" style="text-align:center">
     <h1><%= @item.title.capitalize %></h1>
-    <%= image_tag @item.image.url(:medium) if @item.image_file_name != nil %><br/>
+    <%= image_tag @item.image.url %><br/>
     <%= @item.title %><br/>
     <%= @item.description %><br/>
     <%= print_price(@item.price) %><br/>

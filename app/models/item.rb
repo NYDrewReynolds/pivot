@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :restaurant
 
-  has_attached_file :image, styles: {:medium => "300x300#", :thumb => "100x100"}
+  has_attached_file :image, default_url: 'missing.png'
   validates_attachment :image, content_type: {content_type: ["image/jpeg", "image/jpeg", "image/png", "image/gif"]}
 
   scope :active, -> {where(active: true)}

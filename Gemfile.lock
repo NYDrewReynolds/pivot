@@ -1,17 +1,3 @@
-GIT
-  remote: git://github.com/prawnpdf/prawn-table.git
-  revision: 7a8afda197a1874796959b6431b355d7b188142e
-  specs:
-    prawn-table (0.2.0)
-
-GIT
-  remote: git://github.com/prawnpdf/prawn.git
-  revision: e65c24411c451918718a8e8cb35631c98ccc5517
-  specs:
-    prawn (1.4.0)
-      pdf-core (~> 0.4.0)
-      ttfunk (~> 1.4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,6 +96,8 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     fastercsv (1.5.5)
     figaro (1.0.0)
       thor (~> 0.14)
@@ -179,7 +167,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    pdf-core (0.4.0)
     pg (0.17.1)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -281,7 +268,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    ttfunk (1.4.0)
     turbolinks (2.3.0)
       coffee-rails
     tzinfo (1.2.2)
@@ -309,6 +295,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails (~> 4.4.1)
+  faker
   figaro
   fog
   friendly_id (~> 5.1.0)
@@ -319,8 +306,6 @@ DEPENDENCIES
   paperclip (~> 4.2.0)
   pg
   poltergeist
-  prawn!
-  prawn-table!
   pry-rails (~> 0.3.2)
   quiet_assets (~> 1.0.3)
   rails (= 4.2.1)

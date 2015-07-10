@@ -9,7 +9,7 @@
       <th>Category</th>
     </tr>
     <tr>
-      <td><% if @item.image_file_name != nil %><%= image_tag @item.image.url(:medium) %><% end %></td>
+      <td><% image_tag @item.image.url %></td>
       <td><%= @item.title %></td>
       <td><%= @item.description %></td>
       <td><%= @item.price %></td>
