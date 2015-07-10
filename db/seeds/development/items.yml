@@ -6,28 +6,28 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "goat_milk.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 2
     title: "chilled bangs island mussels"
     description: "tomato water, lemon balm, lemon cucumber"
     price: 14.01
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
-    image_file_name: "mussels.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 3
     title: "smoked wild bluefish"
     description: "tomato + fennel salad, chamomile vinaigrette, coronado cabbage"
     price: 15.01
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
-    image_file_name: "wild_bluefish.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 4
     title: "lemongrass sausage"
     description: "watermelon, shishito pepper, watercress, mint"
     price: 13.01
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
-    image_file_name: "food.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 5
     title: "okra + corn beignets"
     description: "prawn reduction, five herb salad"
@@ -35,21 +35,21 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "okra.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 6
     title: "duck liver sausage"
     description: "bbq tomato jam, corn salad, skillet bread"
     price: 13.01
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
-    image_file_name: "fancy_poo.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 7
     title: "babette's pain naturale"
     description: "beurre rudolph le menuier"
     price: 5.01
     category_ids:
       - '<%= sprig_record(Category, 1).id %>'
-    image_file_name: "gross.JPG"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 8
     title: "margherita"
     description: "fresh mozarella, san marzano tomato, basil"
@@ -57,7 +57,7 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 2).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "margaherita.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 9
     title: "the fig + pig"
     description: "guanciale, gorgonzola, baby arugula"
@@ -65,14 +65,14 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 2).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "pig.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 10
     title: "patata rossa"
     description: "lardo, roasted garlic oil, caramelized onion, pecorino"
     price: 13.01
     category_ids:
       - '<%= sprig_record(Category, 2).id %>'
-    image_file_name: "patata_rossa.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 11
     title: "roasted corn soup"
     description: "chanterelle mushroom confit, tamale, aged Welsh chedder"
@@ -80,7 +80,7 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 3).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "cornsoup.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 12
     title: "local lettuces"
     description: "dried cherries, candied pepitas, chevre&acute;, white balsamic"
@@ -88,7 +88,7 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 3).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "greens.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 13
     title: "cardoon souffle"
     description: "porcini balsamella, leeks, baby kale"
@@ -96,7 +96,7 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 3).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "souffle.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 14
     title: "carrot tagliatelle"
     description: "carrot top pesto, cumin seed, orange beure blanc"
@@ -104,42 +104,42 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 3).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "carrot_tagilatelle.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 15
     title: "day boat scallops"
     description: "surryano ham, cantaloupe, wax beans, fig vin cotto"
     price: 30.01
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
-    image_file_name: "scallops.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 16
     title: "pan roasted lamb"
     description: "eggplant, garbanzo beans, gaeta olive, crepinette, pomegranate demi-glace"
     price: 25.01
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
-    image_file_name: "lamb.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 17
     title: "kale + roasted garlic bucatini"
     description: "smoked ham, pecora vecchio, quail egg yolk"
     price: 25.01
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
-    image_file_name: "kale.png"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 18
     title: "red duroc pork + belly"
     description: "la ratte potatoes, peppercorn-black plum aigre doux, torpedo onions, fennel"
     price: 29.01
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
-    image_file_name: "pork_belly.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 19
     title: "roasted squab + confit"
     description: "grape + turnip brovada, foie gras torchon, watercress puree"
     price: 34.01
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
-    image_file_name: "squab.jpg"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 20
     title: "cauliflower"
     description: "rye gnocchi, baeburn apple, brussel sprouts"
@@ -147,4 +147,364 @@ records:
     category_ids:
       - '<%= sprig_record(Category, 4).id %>'
       - '<%= sprig_record(Category, 5).id %>'
-    image_file_name: "cauliflower.JPG"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
+  - sprig_id: 21
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 22
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 23
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 24
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 25
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 26
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 27
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 28
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 29
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 30
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 31
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 32
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 33
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 34
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 35
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 36
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 37
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 38
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 39
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 40
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 7).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 41
+    title: '<%= Faker::Commerce.product_name %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 42
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 43
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 44
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 45
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 46
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 47
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 48
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 49
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 50
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 51
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 52
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 53
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 54
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 55
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 56
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 57
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 58
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 59
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 60
+    title: '<%= Faker::Lorem.word %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 13).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 61
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 62
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 63
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 64
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 65
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 66
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 67
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 68
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 69
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 70
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 71
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 72
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 73
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 74
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 75
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 76
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 77
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 78
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 79
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 80
+    title: '<%= Faker::Lorem.words.join(" ") %>' 
+    description: '<%= Faker::Lorem.sentence %>'
+    price: '<%= Faker::Commerce.price %>'
+    category_ids: '<%= sprig_record(Category, 17).id %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'

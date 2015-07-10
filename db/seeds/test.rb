@@ -1,3 +1,3 @@
-include Sprig::Helpers
-
-sprig [User, Order, Category, Item]
+# include Sprig::Helpers
+# require 'faker'
+# sprig [User, Order, Category, Item, Restaurant]

@@ -1,50 +1,56 @@
 <div class="navbar-wrapper">
-  <div class="container">
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">
-            <%= image_tag("fud.png", :alt => "logo", :height => '45' ) %>
-          </a>
+    <div class="container">
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <%= image_tag("fud.png", :alt => "logo", :height => '45' ) %>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <%= link_to "Home", root_path %>
+                        </li>
+                        <li class="active">
+                            <%= link_to "About", about_path %>
+                        </li>
+                        <% if current_user && current_user.is?('admin') %>
+                            <li class="active">
+                                <%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(current_restaurant) %>
+                            </li>
+                        <% end %>
+                    </ul>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right" , style="float:right" , style="padding: 20px">
+                            <% if current_user %>
+                                <%= "Welcome #{current_user.nickname ? current_user.nickname : current_user.full_name}!" %>
+                                <%= link_to "My Profile", edit_user_path(current_user) %> /
+                                <%= link_to "Logout", logout_path, method: :delete %>
+                            <% else %>
+                                <%= render 'shared/login_form'  %>
+                            <% end %>
+                            <div class='cart-container' style="display:inline">
+                                <%= link_to( image_tag("Shopping-Cart.png"), cart_edit_path) %>
+                                <span class='cart_quantity'><%= cart.size %></span>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><%= link_to "Home", root_path %></li>
-            <li class="active"><%= link_to "About", about_path %></li>
-            <% if current_user && current_user.is?('admin') %>
-                  <li class="active"><%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(current_restaurant) %></li>
-            <% end %>
-          </ul>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right", style= "float:right", style="padding: 20px">
-              <% if current_user %>
-                <%= "Welcome #{current_user.nickname ? current_user.nickname : current_user.full_name}!" %>
-                <%= link_to "My Profile", edit_user_path(current_user) %> /
-                <%= link_to "Logout", logout_path, method: :delete %>
-              <% else %>
-                <%= render 'shared/login_form'  %>
-              <% end %>
-              <div class='cart-container' style="display:inline">
-                <%= link_to( image_tag("Shopping-Cart.png"), cart_edit_path) %>
-                <span class='cart_quantity'><%= cart.size %></span>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</nav>
-<div class='ajax_flash_messages'>
-  <% flash.each do |type, message| %>
-    <div class="flash" id="<%= type %>">
-      <%= message %>
+    </nav>
+    <div class='ajax_flash_messages'>
+        <% flash.each do |type, message| %>
+            <div class="flash" id="<%= type %>">
+                <%= message %>
+            </div>
+        <% end %>
     </div>
-  <% end %>
-</div>

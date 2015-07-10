@@ -1,11 +1,61 @@
 records:
   - sprig_id: 1
     title: "small plates"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 2
     title: "flat breads"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 3
     title: "soup & salads"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 4
     title: "entree"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 5
     title: "vegetarian"
+    restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
+  - sprig_id: 6
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 7
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 8
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 9
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 10
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
+  - sprig_id: 11
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 12
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 13
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 14
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 15
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
+  - sprig_id: 16
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 17
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 18
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 19
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
+  - sprig_id: 20
+    title: '<%= Faker::Team.creature %>'
+    restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
