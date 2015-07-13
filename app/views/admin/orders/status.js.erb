@@ -1,7 +1,7 @@
 $('.status').text("<%= @order.status %>");
 if ('<%= @order.status %>' === 'paid' ) {
   $('.status-button').remove();
-  $('.status-buttons').html("<%=j link_to 'Mark as Completed', restaurant_admin_order_status_path(current_restaurant, @order.id, 'completed'), method: :PATCH, remote: true, class:'btn btn-grey3 status-button' %>");
+  $('.status-buttons').html("<%=j link_to 'Mark as Completed', restaurant_admin_order_status_path(owned_restaurant, @order.id, 'completed'), method: :PATCH, remote: true, class:'btn btn-grey3 status-button' %>");
 } else if ('<%= @order.status %>' === 'completed') {
   $('.status-button').remove();
 }

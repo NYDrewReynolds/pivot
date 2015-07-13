@@ -1,4 +1,4 @@
-<%= form_for(@category, :url => restaurant_admin_categories_path(current_restaurant)) do |f| %>
+<%= form_for(@category, :url => restaurant_admin_categories_path(owned_restaurant)) do |f| %>
   <p>
     <%= f.label :title %><br/>
     <%= f.text_field :title, autofocus: true %>
@@ -10,6 +10,6 @@
 
   <p>
     <%= f.submit %>
-    <%= link_to "Cancel", restaurant_admin_dashboard_index_path(current_restaurant) %>
+    <%= link_to "Cancel", restaurant_admin_dashboard_index_path(owned_restaurant) %>
   </p>
 <% end %>

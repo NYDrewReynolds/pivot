@@ -5,11 +5,11 @@ Capybara.default_wait_time = 5
 describe 'admin user', type: :feature do
 
   before do
-    @restaurant = create(:restaurant, name: "Pizza Palace", cuisine: "food")
+    @user = create(:user, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf', role:'admin')
+    @restaurant = create(:restaurant, name: "Pizza Palace", cuisine: "food", owner_id: @user.id)
     create(:restaurant, name: "Jorges Garden", cuisine: "mexican")
     create(:restaurant, name: "Sergios", cuisine: "italian")
     category = Category.create(title: 'Small Plates', restaurant_id: @restaurant.id)
-    @user = create(:user, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf', restaurant_id: @restaurant.id, role:'admin')
     @item = Item.create(title: 'Second Food', category_ids: category.id, description: "foodn' shit", price: 10, restaurant_id: @restaurant.id)
     visit '/'
     fill_in 'email', with: "#{@user.email}"
@@ -144,15 +144,18 @@ describe 'admin user', type: :feature do
   end
 
   it "can modify an existing user's role" do
-    nonadmin_user = create(:user, first_name: 'jojo', email: 'jojojo@example.com', password: 'asdf', password_confirmation: 'asdf', role:'user', restaurant_id: @restaurant.id)
+    nonadmin_user = create(:user, first_name: 'jojo', email: 'jojojo@example.com', password: 'asdf', password_confirmation: 'asdf', role:'user')
+    nonadmin_user2 = create(:user, first_name: 'drew', email: 'dr@example.com', password: 'pass', password_confirmation: 'pass', role: 'user')
+    nonadmin_user.restaurants << @restaurant
     restaurant_admin_dashboard_index_path(@restaurant)
     click_on 'View Current Users'
     expect(current_path).to eq restaurant_admin_users_path(@restaurant)
+    expect(page).to_not have_content('drew')
     click_on('user')
     expect(current_path).to eq edit_restaurant_admin_user_path(@restaurant, nonadmin_user)
     select 'Admin', from: 'user_role'
     click_on 'Save Changes'
-    expect(User.last.role).to eq 'Admin'
+    expect(User.find(nonadmin_user.id).role).to eq 'Admin'
   end
 
   describe 'admin order dashboard' do

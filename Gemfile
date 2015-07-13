@@ -14,6 +14,7 @@ group :test do
   gem 'capybara', '~> 2.4.3'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'mocha'
 end
 
 group :development do
@@ -45,3 +46,5 @@ gem 'aws-sdk', '~> 1.54.0'
 gem 'cancancan'
 gem 'mail_form'
 gem 'simple_form'
+gem 'simplecov'
+gem 'aasm'

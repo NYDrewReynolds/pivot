@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   private
 
     def correct_destination(user)
-      user.is?('admin') ? restaurant_admin_dashboard_index_path(current_restaurant) : root_path
+      user.is?('admin') ? restaurant_admin_dashboard_index_path(owned_restaurant) : root_path
     end
 
 end

@@ -31,13 +31,13 @@
         <% @order_items.each do |item, quantity| %>
           <tbody>
           <tr id='<%= "item_#{item.id}" %>'>
-            <td><%= link_to item.title, restaurant_admin_item_path(current_restaurant, item) %></td>
-              <td><%= form_tag(restaurant_admin_order_update_quantity_path(current_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
+            <td><%= link_to item.title, restaurant_admin_item_path(owned_restaurant, item) %></td>
+              <td><%= form_tag(restaurant_admin_order_update_quantity_path(owned_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
                 <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
               <%= submit_tag "Update Quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %></td>
               <td><%= print_price(item.price) %></td>
             <% end %>
-            <td><%= link_to 'Remove Item', restaurant_admin_order_remove_item_path(current_restaurant,@order, item), class: "btn btn-grey1 btn-sm", id: "remove_item", remote: true, method: :PATCH %></td>
+            <td><%= link_to 'Remove Item', restaurant_admin_order_remove_item_path(owned_restaurant,@order, item), class: "btn btn-grey1 btn-sm", id: "remove_item", remote: true, method: :PATCH %></td>
         </tr>
         </tbody>
         <% end %>
@@ -46,17 +46,17 @@
       </table>
       </br>
           <div class="form-group">
-            <%= link_to "Cancel My Order", restaurant_admin_order_status_path(current_restaurant, @order.id, 'cancelled'), method: :PATCH, remote: true, class:"btn btn-grey1" %>
+            <%= link_to "Cancel My Order", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'cancelled'), method: :PATCH, remote: true, class:"btn btn-grey1" %>
           </div>
           <div class="status-buttons">
             <% if @order.status == 'ordered' %>
-              <%= link_to "Mark as Paid", restaurant_admin_order_status_path(current_restaurant, @order.id, 'paid'), method: :PATCH, remote: true, class:"btn btn-grey2 status-button" %>
+              <%= link_to "Mark as Paid", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'paid'), method: :PATCH, remote: true, class:"btn btn-grey2 status-button" %>
             <% elsif @order.status == 'paid' %>
-              <%= link_to "Mark as Completed", restaurant_admin_order_status_path(current_restaurant, @order.id, 'completed'), method: :PATCH, remote: true, class:"btn btn-grey3 status-button" %>
+              <%= link_to "Mark as Completed", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'completed'), method: :PATCH, remote: true, class:"btn btn-grey3 status-button" %>
             <% end %>
           </div>
       </div>
     </div>
-    <%= link_to "<< Return to Current Order Dashboard", restaurant_admin_orders_path(current_restaurant), class: "btn btn-grey4"%>
+    <%= link_to "<< Return to Current Order Dashboard", restaurant_admin_orders_path(owned_restaurant), class: "btn btn-grey4"%>
   </div>
 </div>

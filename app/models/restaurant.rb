@@ -1,9 +1,11 @@
 class Restaurant < ActiveRecord::Base
   extend FriendlyId
   has_many :orders
-  has_many :users
   has_many :items
   has_many :categories
+  has_many :user_restaurants
+  has_many :users, through: :user_restaurants
+
   friendly_id :slug_candidates, use: :slugged
 
   validates :name, uniqueness: true, presence: true
@@ -17,4 +19,5 @@ class Restaurant < ActiveRecord::Base
   def should_generate_new_friendly_id?
     slug_name_changed? || super
   end
+
 end

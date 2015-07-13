@@ -2,7 +2,7 @@
 <table>
 		<% @categories.each do |category| %>
 		<tr>
-			<td><%= link_to category.title, edit_restaurant_admin_category_path(current_restaurant, category) %></td>
+			<td><%= link_to category.title, edit_restaurant_admin_category_path(owned_restaurant, category) %></td>
 		</tr>
 		<% end %>
 </table>

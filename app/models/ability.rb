@@ -6,10 +6,10 @@ class Ability
     user ||= User.new(role: nil)
 
     if user.is? :admin
-      can :manage, Item, restaurant_id: user.restaurant.id
-      can :manage, Category, restaurant_id: user.restaurant.id
-      can :manage, Order
-      can :manage, User, restaurant_id: user.restaurant.id
+      can :manage, Item, restaurant_id: @owned_restaurant.id
+      can :manage, Category, restaurant_id: @owned_restaurant.id
+      can :manage, Order, restaurant_id: @owned_restaurant.id
+      can :manage, User, User.restaurants.where(restaurant_id: @owned_restaurant.id)
       can :read, Item
       can :read, Category
       can :read, Order
