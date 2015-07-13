@@ -2,8 +2,8 @@ class Admin::ItemsController < Admin::BaseController
   before_action :set_item, except: [:new, :create]
 
   def new
-    @item = current_restaurant.items.new
-    @categories = current_restaurant.categories
+    @item = owned_restaurant.items.new
+    @categories = owned_restaurant.categories
   end
 
   def show
@@ -11,18 +11,18 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def edit
-    @categories = current_restaurant.categories
+    @categories = owned_restaurant.categories
   end
 
   def create
-    @item = current_restaurant.items.new(item_params)
+    @item = owned_restaurant.items.new(item_params)
     @categories = params[:categories] || []
     @categories.each do |category|
-      category = current_restaurant.categories.find(category)
+      category = owned_restaurant.categories.find(category)
       @item.categories << category
     end
     if @item.save
-      redirect_to restaurant_admin_dashboard_index_path(current_restaurant)
+      redirect_to restaurant_admin_dashboard_index_path(owned_restaurant)
       flash[:notice] = "Your item has been successfully added to the menu!"
     else
       redirect_to :back
@@ -32,20 +32,20 @@ class Admin::ItemsController < Admin::BaseController
 
   def destroy
     @item.destroy
-    redirect_to restaurant_admin_dashboard_index_path(current_restaurant)
+    redirect_to restaurant_admin_dashboard_index_path(owned_restaurant)
   end
 
   def update
     @categories = params[:categories] || []
     @item.categories.clear
     @categories.each do |category|
-      category = current_restaurant.categories.find(category)
+      category = owned_restaurant.categories.find(category)
       @item.categories << category
     end
 
     if @item.update(item_params)
       flash[:notice] = "Your item has been successfully updated!"
-      redirect_to restaurant_admin_item_path(current_restaurant, @item)
+      redirect_to restaurant_admin_item_path(owned_restaurant, @item)
     else
       redirect_to :back
       flash[:notice] = "Error saving item."
@@ -59,7 +59,7 @@ class Admin::ItemsController < Admin::BaseController
     end
 
     def set_item
-      @item = current_restaurant.items.find(params[:id])
+      @item = owned_restaurant.items.find(params[:id])
     end
 
 end

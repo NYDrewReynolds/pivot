@@ -12,7 +12,7 @@
     <% @items.each do |item| %>
        <tr class=<%= non_active_style(item) %>>
         <td><%= image_tag item.image.url, height: '30' %></td>
-        <td><%= link_to item.title, edit_restaurant_admin_item_path(current_restaurant, item) %></td>
+        <td><%= link_to item.title, edit_restaurant_admin_item_path(owned_restaurant, item) %></td>
         <td><%= item.description %></td>
         <td><%= print_price(item.price) %></td>
         <td><%= item.active %></td>

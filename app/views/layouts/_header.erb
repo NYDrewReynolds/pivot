@@ -23,7 +23,7 @@
                         </li>
                         <% if current_user && current_user.is?('admin') %>
                             <li class="active">
-                                <%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(current_restaurant) %>
+                                <%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(owned_restaurant) %>
                             </li>
                         <% end %>
                     </ul>

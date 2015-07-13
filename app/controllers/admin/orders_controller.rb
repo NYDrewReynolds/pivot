@@ -3,11 +3,11 @@ class Admin::OrdersController < Admin::BaseController
   before_action :set_item_id, only: [:update_quantity, :remove_item]
 
 	def index
-		@orders       = current_restaurant.orders.all
-		@ordered      = current_restaurant.orders.where(:status => 'ordered')
-		@paid         = current_restaurant.orders.where(:status => 'paid')
-		@completed    = current_restaurant.orders.where(:status => 'completed')
-		@cancelled    = current_restaurant.orders.where(:status => 'cancelled')
+		@orders       = owned_restaurant.orders.all
+		@ordered      = owned_restaurant.orders.where(:status => 'ordered')
+		@paid         = owned_restaurant.orders.where(:status => 'paid')
+		@completed    = owned_restaurant.orders.where(:status => 'completed')
+		@cancelled    = owned_restaurant.orders.where(:status => 'cancelled')
 	end
 
 	def edit
@@ -36,7 +36,7 @@ class Admin::OrdersController < Admin::BaseController
 	def destroy
 		@order.destroy
 		flash[:notice]="Your shit is destroyed"
-		redirect_to restaurant_admin_orders_path(current_restaurant)
+		redirect_to restaurant_admin_orders_path(owned_restaurant)
 	end
 
 	def status
@@ -48,14 +48,14 @@ class Admin::OrdersController < Admin::BaseController
 	end
 
 	def custom_show
-		@orders = current_restaurant.orders.where(:status => params[:status])
+		@orders = owned_restaurant.orders.where(:status => params[:status])
 		@status = params[:status]
 	end
 
   private
 
     def set_order
-      @order = current_restaurant.orders.find(params[:id])
+      @order = owned_restaurant.orders.find(params[:id])
     end
 
     def set_item_id

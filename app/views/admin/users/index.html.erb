@@ -1,4 +1,4 @@
-<h1>Current List of <%=  current_restaurant.name %> Users</h1>
+<h1>Current List of <%=  owned_restaurant.name %> Users</h1>
 
 <table class="table table-striped">
   <thead>
@@ -15,7 +15,7 @@
         <td><%= user.first_name %>&nbsp<%= user.last_name %></td>
         <td><%= user.nickname %></td>
         <td><%= user.email %></td>
-        <td><%= link_to user.role, edit_restaurant_admin_user_path(current_restaurant, user) %></td>
+        <td><%= link_to user.role, edit_restaurant_admin_user_path(owned_restaurant, user) %></td>
         <td>
       </td>
     </tr>

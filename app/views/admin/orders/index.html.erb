@@ -1,9 +1,9 @@
 
 <h2>Current Orders in System</h2>
-<h4><%= link_to "Ordered: ", restaurant_admin_order_custom_show_path(current_restaurant, "ordered") %> <%= @ordered.size %></h4>
-<h4><%= link_to "Paid: ", restaurant_admin_order_custom_show_path(current_restaurant, "paid") %> <%= @paid.size %></h4>
-<h4><%= link_to "Completed: ", restaurant_admin_order_custom_show_path(current_restaurant, "completed") %> <%= @completed.size %></h4>
-<h4><%= link_to "Cancelled: ", restaurant_admin_order_custom_show_path(current_restaurant, "cancelled") %> <%= @cancelled.size %></h4>
+<h4><%= link_to "Ordered: ", restaurant_admin_order_custom_show_path(owned_restaurant, "ordered") %> <%= @ordered.size %></h4>
+<h4><%= link_to "Paid: ", restaurant_admin_order_custom_show_path(owned_restaurant, "paid") %> <%= @paid.size %></h4>
+<h4><%= link_to "Completed: ", restaurant_admin_order_custom_show_path(owned_restaurant, "completed") %> <%= @completed.size %></h4>
+<h4><%= link_to "Cancelled: ", restaurant_admin_order_custom_show_path(owned_restaurant, "cancelled") %> <%= @cancelled.size %></h4>
 <table class = "table table-striped">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to order.id, edit_restaurant_admin_order_path(current_restaurant, order) %></td>
+      <td><%= link_to order.id, edit_restaurant_admin_order_path(owned_restaurant, order) %></td>
       <td><%= (order.created_at).to_formatted_s(:long) %></td>
 
       <% if order.status == 'cancelled' || order.status == 'completed' %>
@@ -31,7 +31,7 @@
       <td><%= order.user.first_name %> </td>
       <td><%= print_price(order_price(order.items)) %> </td>
       <td><%= order.status %> </td>
-      <td><%= link_to "View/Edit Order", edit_restaurant_admin_order_path(current_restaurant, order), class: "btn btn-info" %>
+      <td><%= link_to "View/Edit Order", edit_restaurant_admin_order_path(owned_restaurant, order), class: "btn btn-info" %>
     </tr>
     <% end %>
   </tbody>

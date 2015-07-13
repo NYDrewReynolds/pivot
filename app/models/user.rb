@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  belongs_to :restaurant
-
+  has_many :user_restaurants
+  has_many :restaurants, through: :user_restaurants
   has_many :orders
 
   has_secure_password

@@ -12,7 +12,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(valid_params)
 
     if @restaurant.save
-      current_user.update(restaurant_id: @restaurant.id, role: 'admin')
+      @restaurant.update(owner_id: current_user.id)
+      current_user.update(role: 'admin')
       redirect_to restaurant_path(@restaurant)
       flash[:notice] = "Your restaurant has been successfully created!"
     else
@@ -20,7 +21,6 @@ class RestaurantsController < ApplicationController
       flash[:notice] = "All fields are required to create a restaurant."
     end
   end
-
 
   def edit
   end

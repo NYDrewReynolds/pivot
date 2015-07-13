@@ -5,8 +5,8 @@
     <%= render 'form' %>
   </div>
   <%= link_to 'Your Orders', user_orders_path %>
-  <% if current_user.restaurant %>
-      <%= link_to "Edit Restaurant Details", edit_restaurant_path(current_user.restaurant), style: "padding-left: 10px" %>
+  <% if owned_restaurant %>
+      <%= link_to "Edit Restaurant Details", edit_restaurant_path(owned_restaurant), style: "padding-left: 10px" %>
   <% else %>
       <%= link_to "Create a Restaurant", new_restaurant_path, style: "padding-left: 10px" %>
   <% end %>

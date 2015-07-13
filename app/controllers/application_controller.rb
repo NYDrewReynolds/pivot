@@ -29,10 +29,10 @@ class ApplicationController < ActionController::Base
       session[:cart] = cart.to_a
     end
 
-  def current_restaurant
-    @current_restaurant ||= current_user.restaurant
+  def owned_restaurant
+    @owned_restaurant ||= Restaurant.find_by(owner_id: current_user.id)
   end
 
-  helper_method :current_restaurant
+  helper_method :owned_restaurant
 
 end
