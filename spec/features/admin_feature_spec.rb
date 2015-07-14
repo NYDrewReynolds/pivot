@@ -208,16 +208,12 @@ describe 'admin user', type: :feature do
       expect(page).to have_content('Ordered Orders')
     end
 
-    it 'can link to transition to a different status', js: true do
+    it 'can link to transition to a different status' do
       visit restaurant_admin_orders_path(@restaurant)
       click_on('View/Edit Order')
       expect(current_path).to eq edit_restaurant_admin_order_path(@restaurant, @order)
       click_on('Mark as Paid')
-      expect(page).to have_content('paid')
-      click_on('Mark as Completed')
-      expect(page).to have_content('completed')
-      click_on('Cancel My Order')
-      expect(page).to have_content('cancelled')
+      expect(page).to have_content('ready_for_prep')
     end
 
     it 'can access details of an individual order' do

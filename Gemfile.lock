@@ -285,6 +285,7 @@ DEPENDENCIES
   paperclip (~> 4.2.0)
   pg
   poltergeist
+  pry
   pry-rails (~> 0.3.2)
   quiet_assets (~> 1.0.3)
   rails (= 4.2.1)

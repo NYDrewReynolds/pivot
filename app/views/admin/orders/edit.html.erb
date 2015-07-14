@@ -45,15 +45,8 @@
 
       </table>
       </br>
-          <div class="form-group">
-            <%= link_to "Cancel My Order", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'cancelled'), method: :PATCH, remote: true, class:"btn btn-grey1" %>
-          </div>
           <div class="status-buttons">
-            <% if @order.status == 'ordered' %>
-              <%= link_to "Mark as Paid", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'paid'), method: :PATCH, remote: true, class:"btn btn-grey2 status-button" %>
-            <% elsif @order.status == 'paid' %>
-              <%= link_to "Mark as Completed", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'completed'), method: :PATCH, remote: true, class:"btn btn-grey3 status-button" %>
-            <% end %>
+            <%= order_button_display(@order) %>
           </div>
       </div>
     </div>
