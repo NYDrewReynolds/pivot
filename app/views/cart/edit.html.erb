@@ -1,27 +1,33 @@
 <div class="col-md-10 col-md-offset-1">
-  <div class="panel panel-default">
-    <div class="panel-heading"><h1>Your Cart</h1></div>
-      <table class="table">
-        <tbody>
-        <% cart.item_ids_to_quantities.each do |item, quantity| %>
-          <tr id='<%= "item_#{item.id}" %>'>
-            <td><%= item.title %></td>
-              <td><%= form_tag(cart_update_quantity_path(item), method: :patch, remote: true, style: 'display:inline;') do %>
-                <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
-                <%= submit_tag "update quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %>
-              <% end %></td>
-              <td><%= print_price(item.price) %></td>
-              <td><%= form_tag(cart_remove_item_path(item), method: :patch, remote: true, style: 'display:inline;') do %>
-                <span class="glyphicon glyphicon-remove"></span>
-                <%= submit_tag 'remove item', class: "btn btn-grey2 btn-sm", id: "remove_item" %>
-              <% end %></td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>Your Cart</h1></div>
+        <table class="table" id="cart_table">
+            <thead>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Restaurant</th>
+            </thead>
+            <tbody>
+                <% cart.item_ids_to_quantities.each do |item, quantity| %>
+                    <tr id='<%= "item_#{item.id}" %>'>
+                        <td><%= item.title %></td>
+                        <td><%= form_tag(cart_update_quantity_path(item), method: :patch, remote: true, style: 'display:inline;') do %>
+                            <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
+                            <%= submit_tag "update quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %>
+                        <% end %></td>
+                        <td><%= print_price(item.price) %></td>
+                        <td><%= form_tag(cart_remove_item_path(item), method: :patch, remote: true, style: 'display:inline;') do %>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <%= submit_tag 'remove item', class: "btn btn-grey2 btn-sm", id: "remove_item" %>
+                        <% end %></td>
+                    </tr>
+            </tbody>
+                <% end %>
+        </table>
     </div>
     <%= link_to 'Clear My Cart', cart_destroy_path, method: :delete, class: "btn btn-grey4 btn-sm" %>
     <%= link_to @cart_presenter.checkout_label, @cart_presenter.checkout_path, class: "btn btn-grey3 btn-sm" %>
-  </div>
+</div>
 </div>
 </ul>
