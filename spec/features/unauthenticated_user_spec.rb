@@ -136,7 +136,7 @@ describe 'unauthenticated user', type: :feature do
       within('.cart_quantity') do
         expect(page).to have_content '2'
       end
-      selected = find('#qty').value
+      selected = find('#quantity').value
       expect(selected).to eq('2')
     end
 

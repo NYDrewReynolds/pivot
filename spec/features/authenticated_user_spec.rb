@@ -137,7 +137,7 @@ describe 'authenticated user order display page' do
       create(:restaurant, name: "Sergios", cuisine: "italian")
       category = Category.create(title: 'Small Plates', restaurant_id: @restaurant_1.id)
       @item = Item.create(title: 'Second Food', category_ids: category.id, description: "foodn' shit", price: 10, restaurant_id: @restaurant_1.id)
-      @order = create(:order, user_id: 1, items: [@item] )
+      @order = create(:order, user_id: 1, items: [@item], restaurant_id: @restaurant_1.id )
       visit '/'
       fill_in 'email', with: "#{user.email}"
       fill_in 'password', with: "#{user.password}"
