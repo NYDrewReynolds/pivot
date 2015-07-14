@@ -6,6 +6,7 @@ records:
     nickname:
     password: 'password'
     password_confirmation: 'password'
+    role: 'admin'
   - sprig_id: 2
     first_name: 'Jeff'
     last_name: ''
@@ -13,6 +14,7 @@ records:
     nickname: 'j3'
     password: 'password'
     password_confirmation: 'password'
+    role: 'admin'
   - sprig_id: 3
     first_name: 'Jorge'
     last_name: 'Tellez'
@@ -20,6 +22,7 @@ records:
     nickname: 'novohispano'
     password: 'password'
     password_confirmation: 'password'
+    role: 'admin'
   - sprig_id: 4
     first_name: 'Josh'
     last_name: 'Cheek'

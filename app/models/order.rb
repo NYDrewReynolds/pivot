@@ -44,7 +44,7 @@ class Order < ActiveRecord::Base
       transitions from: :ready_for_delivery, to: :out_for_delivery
     end
 
-    event :delivered do
+    event :completed do
       transitions from: :out_for_delivery, to: :completed
     end
 
@@ -61,6 +61,10 @@ class Order < ActiveRecord::Base
     ['ordered', 'ready_for_prep', 'in_progress', 'ready_for_delivery', 'out_for_delivery' 'completed', 'cancelled']
   end
 
+  def events
+    ['pay', 'preparing', 'cooked', 'out', 'completed', 'cancel']
+  end
+
   def exchanges
     ['pickup', 'delivery']
   end
@@ -74,4 +78,7 @@ class Order < ActiveRecord::Base
     quantity.to_i.times { add_item(item_id) }
   end
 
+  def update_status(event)
+    self.send(event) if events.include?(event)
+  end
 end

@@ -22,7 +22,7 @@
       <td><%= link_to order.id, edit_restaurant_admin_order_path(owned_restaurant, order) %></td>
       <td><%= (order.created_at).to_formatted_s(:long) %></td>
 
-      <% if order.status == 'cancelled' || order.status == 'completed' %>
+      <% if order.cancelled? || order.completed? %>
         <td><%= (order.updated_at).to_formatted_s(:long) %></td>
         <% else %>
         <td></td>
@@ -30,7 +30,7 @@
 
       <td><%= order.user.first_name %> </td>
       <td><%= print_price(order_price(order.items)) %> </td>
-      <td><%= order.status %> </td>
+      <td><%= order.status.humanize %> </td>
       <td><%= link_to "View/Edit Order", edit_restaurant_admin_order_path(owned_restaurant, order), class: "btn btn-info" %>
     </tr>
     <% end %>
