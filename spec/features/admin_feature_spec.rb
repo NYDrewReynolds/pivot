@@ -213,7 +213,7 @@ describe 'admin user', type: :feature do
       click_on('View/Edit Order')
       expect(current_path).to eq edit_restaurant_admin_order_path(@restaurant, @order)
       click_on('Mark as Paid')
-      expect(page).to have_content('ready_for_prep')
+      expect(page).to have_content('Ready for prep')
     end
 
     it 'can access details of an individual order' do

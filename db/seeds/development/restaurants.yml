@@ -2,13 +2,17 @@ records:
   - sprig_id: 1
     name: 'Caussa'
     cuisine: 'Pretentious'
+    owner_id: '<%= sprig_record(User, 1).id %>' 
   - sprig_id: 2
     name: 'Pizza Palace'
     cuisine: 'Pizza'
+    owner_id: '<%= sprig_record(User, 3).id %>'
   - sprig_id: 3
     name: "Jeff's Joint"
     cuisine: "Hoppin' eats n' tasty treats"
     slug_name: 'jeffs-joint'
+    owner_id: '<%= sprig_record(User, 2).id %>'
   - sprig_id: 4
     name: 'Taco Haus'
     cuisine: 'Tacos!!!!!!!'
+    owner_id: '<%= sprig_record(User, 4).id %>'

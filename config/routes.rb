@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :users
       resources :orders, only: [:index, :edit, :destroy]
-      patch '/order/status/:id/:status', to: 'orders#status', as: 'order_status'
+      patch '/order/status/:id/:event', to: 'orders#update_status', as: 'order_status'
       patch '/orders/remove_item/:id/:item_id', to: 'orders#remove_item', as: 'order_remove_item'
       patch '/orders/update_quantity/:id/:item_id', to: 'orders#update_quantity', as: 'order_update_quantity'
       get '/orders/:status', to: 'orders#custom_show', as: 'order_custom_show'

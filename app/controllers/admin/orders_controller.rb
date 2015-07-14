@@ -2,30 +2,30 @@ class Admin::OrdersController < Admin::BaseController
   before_action :set_order, except: [:index, :custom_show]
   before_action :set_item_id, only: [:update_quantity, :remove_item]
 
-	def index
-		@orders       = owned_restaurant.orders.all
-		@ordered      = owned_restaurant.orders.where(:status => 'ordered')
-		@paid         = owned_restaurant.orders.where(:status => 'paid')
-		@completed    = owned_restaurant.orders.where(:status => 'completed')
-		@cancelled    = owned_restaurant.orders.where(:status => 'cancelled')
-	end
+  def index
+    @orders       = owned_restaurant.orders.all
+    @ordered      = owned_restaurant.orders.where(:status => 'ordered')
+    @paid         = owned_restaurant.orders.where(:status => 'paid')
+    @completed    = owned_restaurant.orders.where(:status => 'completed')
+    @cancelled    = owned_restaurant.orders.where(:status => 'cancelled')
+  end
 
-	def edit
+  def edit
     @order_items = @order.items_to_quantities
-	end
+  end
 
-	def update_quantity
+  def update_quantity
     @order.update_quantity(@item_id, params[:quantity])
 
     respond_to do |format|
       format.js { @order }
     end
-	end
+  end
 
-	def remove_item
+  def remove_item
     @order.items.destroy(@item_id)
     if @order.items.empty?
-    	@order.status = "cancelled"
+      @order.status = "cancelled"
     end
     @order.save
     respond_to do |format|
@@ -33,30 +33,30 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
 
-	def destroy
-		@order.destroy
-		flash[:notice]="Your shit is destroyed"
-		redirect_to restaurant_admin_orders_path(owned_restaurant)
-	end
+  def destroy
+    @order.destroy
+    flash[:notice]="Your shit is destroyed"
+    redirect_to restaurant_admin_orders_path(owned_restaurant)
+  end
 
-	def status
-		@order.status = params[:status]
-		@order.save
-		redirect_to edit_restaurant_admin_order_path(@order)
-	end
+  def update_status
+    @order.update_status(params[:event])
+    @order.save
+    redirect_to edit_restaurant_admin_order_path(owned_restaurant, @order)
+  end
 
-	def custom_show
-		@orders = owned_restaurant.orders.where(:status => params[:status])
-		@status = params[:status]
-	end
+  def custom_show
+    @orders = owned_restaurant.orders.where(:status => params[:status])
+    @status = params[:status]
+  end
 
   private
 
-    def set_order
-      @order = owned_restaurant.orders.find(params[:id])
-    end
+  def set_order
+    @order = owned_restaurant.orders.find(params[:id])
+  end
 
-    def set_item_id
-      @item_id = params[:item_id]
-    end
+  def set_item_id
+    @item_id = params[:item_id]
+  end
 end
