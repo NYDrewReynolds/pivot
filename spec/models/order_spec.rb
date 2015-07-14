@@ -25,11 +25,9 @@ RSpec.describe Order, :type => :model do
     expect(order).to_not be_valid
     order.status = 'neither'
     expect(order).to_not be_valid
+    order.status = 'ready_for_prep'
+    expect(order).to be_valid
     order.status = 'cancelled'
-    expect(order).to be_valid
-    order.status = 'completed'
-    expect(order).to be_valid
-    order.status = 'paid'
     expect(order).to be_valid
   end
 

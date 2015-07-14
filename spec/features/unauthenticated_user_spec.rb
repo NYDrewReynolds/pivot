@@ -156,7 +156,7 @@ describe 'unauthenticated user', type: :feature do
 
     it 'can log in, which does not clear the cart' do
       visit root_path
-      within('.cart-container') do
+      within('.cart_quantity') do
         expect(page).to have_content '1'
       end
       user = create(:user, first_name: 'joe', email: 'abc@example.com', password: 'asdf', password_confirmation: 'asdf')

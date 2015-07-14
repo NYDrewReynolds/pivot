@@ -42,9 +42,7 @@ class Admin::OrdersController < Admin::BaseController
 	def status
 		@order.status = params[:status]
 		@order.save
-		respond_to do |format|
-			format.js { @order }
-		end
+		redirect_to edit_restaurant_admin_order_path(@order)
 	end
 
 	def custom_show
