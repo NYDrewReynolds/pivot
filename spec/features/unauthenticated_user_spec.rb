@@ -129,18 +129,20 @@ describe 'unauthenticated user', type: :feature do
 
     it "can update the quantity of an item in the cart" do
       visit cart_edit_path
-      fill_in('quantity', with: '2')
-      find('#update_quantity').click
-      within('.cart-container') do
+      within_table('cart_table') do
+        fill_in('quantity', with: '2')
+        find('#update_quantity').click
+      end
+      within('.cart_quantity') do
         expect(page).to have_content '2'
       end
-      selected = find('#quantity').value
+      selected = find('#qty').value
       expect(selected).to eq('2')
     end
 
     it "can remove an item from the cart" do
       visit cart_edit_path
-       find("#remove_item").click
+      find("#remove_item").click
       within('.cart-container') do
         expect(page).to have_content '0'
       end
