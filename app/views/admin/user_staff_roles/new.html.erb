@@ -1,0 +1,16 @@
+<h1>Create A New User or Administrator</h1>
+<h3>All fields are required</h3>
+<div class="row">
+  <div class="col-md-1 col-md-offset-5">
+
+    <%= form_for [:restaurant, :admin, @user_staff_role] do |f| %>
+        <%= label_tag :email, "Enter Email Address" %>
+        <%= text_field_tag 'user_staff_role[email]' %>
+
+        <%= label_tag :staff_role, "Cook or Driver?" %>
+        <%= select_tag 'user_staff_role[staff_role]', options_for_select(['cook', 'driver'], "cook") %>
+
+        <%= f.submit "Add New Staff", style:'margin-top: 10px' %>
+    <% end %>
+  </div>
+</div>

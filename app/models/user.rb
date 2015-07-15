@@ -36,5 +36,9 @@ class User < ActiveRecord::Base
       end
     end.flatten
   end
+  #
+  # def restaurant_role(restaurant)
+  #   user_staff_roles.where(restaurant_id: restaurant.id)
+  # end
 
 end

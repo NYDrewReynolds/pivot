@@ -1,0 +1,22 @@
+<h1>Current List of <%=  owned_restaurant.name %> Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Staff Role (click to edit)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @user_staff_roles.each do |user_staff_role| %>
+        <td><%= user_staff_role.user.first_name %>&nbsp<%= user_staff_role.user.last_name %></td>
+        <td><%= user_staff_role.user.email %></td>
+        <td><%= link_to user_staff_role.staff_role.name.humanize, edit_restaurant_admin_user_staff_role_path(owned_restaurant, user_staff_role) %></td>
+        <td>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

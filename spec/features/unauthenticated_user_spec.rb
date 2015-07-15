@@ -98,10 +98,9 @@ describe 'unauthenticated user', type: :feature do
   end
 
   it "cannot make themselves an administrator" do
-    visit new_restaurant_admin_user_path(@restaurant_1)
+    visit new_restaurant_admin_user_staff_role_path(@restaurant_1)
     expect(page).to_not have_content('Role')
   end
-
 
   context "when using the cart", js: true do
     before do
