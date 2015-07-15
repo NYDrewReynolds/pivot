@@ -11,23 +11,23 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end
-    helper_method :current_user
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
 
-    def set_time_zone
-      Time.zone = current_user.time_zone
-    end
+  def set_time_zone
+    Time.zone = current_user.time_zone
+  end
 
-    def cart
-      @cart ||= Cart.new(session[:cart])
-    end
-    helper_method :cart
+  def cart
+    @cart ||= Cart.new(session[:cart])
+  end
+  helper_method :cart
 
-    def save_cart_in_session
-      session[:cart] = cart.to_a
-    end
+  def save_cart_in_session
+    session[:cart] = cart.to_a
+  end
 
   def owned_restaurant
     @owned_restaurant ||= Restaurant.find_by(owner_id: current_user.id)

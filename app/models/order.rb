@@ -11,13 +11,12 @@ class Order < ActiveRecord::Base
   validates :items, presence: true, on: :create
   validates :user, presence: true
   validates :status, inclusion: { in: :statuses }
-  validates :exchange, inclusion: { in: :exchanges }
   validates :street_number,
     :street,
     :city,
-    presence: true, if: :delivery?
-  validates :state, inclusion: states, if: :delivery?
-  validates :zip, format: { with: /\A\d{5}\d*\z/ }, if: :delivery?
+    presence: true
+  validates :state, inclusion: states
+  validates :zip, format: { with: /\A\d{5}\d*\z/ }
 
   aasm :column => :status do
     state :ordered, :initial => true
@@ -53,20 +52,12 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def delivery?
-    exchange == 'delivery'
-  end
-
   def statuses
     ['ordered', 'ready_for_prep', 'in_progress', 'ready_for_delivery', 'out_for_delivery' 'completed', 'cancelled']
   end
 
-  def events
+  def valid_events
     ['pay', 'preparing', 'cooked', 'out', 'completed', 'cancel']
-  end
-
-  def exchanges
-    ['pickup', 'delivery']
   end
 
   def add_item(item_id)
@@ -79,6 +70,6 @@ class Order < ActiveRecord::Base
   end
 
   def update_status(event)
-    self.send(event) if events.include?(event)
+    self.send(event) if valid_events.include?(event)
   end
 end

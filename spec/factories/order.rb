@@ -3,7 +3,6 @@ FactoryGirl.define do
     association :user
     items { [build(:item)] }
     status "ordered"
-    exchange "pickup"
     street_number "123"
     street "Sesame St"
     city "Wall"
