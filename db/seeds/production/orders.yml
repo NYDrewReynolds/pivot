@@ -1,10 +1,15 @@
-records:
+    records:
   - sprig_id: 1
     status: "ordered"
     user_id: '<%= sprig_record(User, 1).id %>'
     item_ids:
       - '<%= sprig_record(Item, 7).id %>'
       - '<%= sprig_record(Item, 8).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 2
     status: 'ordered'
@@ -12,6 +17,11 @@ records:
     item_ids:
       - '<%= sprig_record(Item, 4).id %>'
       - '<%= sprig_record(Item, 5).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 3
     status: 'completed'
@@ -24,6 +34,11 @@ records:
       - '<%= sprig_record(Item, 8).id %>'
       - '<%= sprig_record(Item, 3).id %>'
       - '<%= sprig_record(Item, 5).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 4
     status: 'completed'
@@ -31,6 +46,11 @@ records:
     item_ids:
       - '<%= sprig_record(Item, 21).id %>'
       - '<%= sprig_record(Item, 22).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
   - sprig_id: 5
     status: 'cancelled'
@@ -38,6 +58,11 @@ records:
     item_ids:
       - '<%= sprig_record(Item, 24).id %>'
       - '<%= sprig_record(Item, 25).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
   - sprig_id: 6
     status: 'cancelled'
@@ -46,6 +71,11 @@ records:
       - '<%= sprig_record(Item, 41).id %>'
       - '<%= sprig_record(Item, 42).id %>'
       - '<%= sprig_record(Item, 43).id %>'
+    street_number: '1234'
+    street: 'Euclid'
+    city: 'Denver'
+    state: 'CO'
+    zip: '99999'
     restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
   - sprig_id: 7
     status: 'cancelled'

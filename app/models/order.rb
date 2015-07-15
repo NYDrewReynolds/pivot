@@ -53,7 +53,7 @@ class Order < ActiveRecord::Base
   end
 
   def statuses
-    ['ordered', 'ready_for_prep', 'in_progress', 'ready_for_delivery', 'out_for_delivery' 'completed', 'cancelled']
+    ['ordered', 'ready_for_prep', 'in_progress', 'ready_for_delivery', 'out_for_delivery', 'completed', 'cancelled']
   end
 
   def valid_events
