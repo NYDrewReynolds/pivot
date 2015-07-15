@@ -21,7 +21,8 @@ class Admin::UserStaffRolesController < Admin::BaseController
         render :new
       end
     else
-      Invite.create(email: valid_params[:email], restaurant_id: owned_restaurant.id, staff_role_id: role.id)
+      invite = Invite.find_by(email: valid_params[:email])
+      Invite.create(email: valid_params[:email], restaurant_id: owned_restaurant.id, staff_role_id: role.id) unless invite
       InviteMailer.invite_email(valid_params[:email], current_user, owned_restaurant).deliver_now
       flash[:notice] = "Email sent!"
       redirect_to restaurant_admin_dashboard_index_path
