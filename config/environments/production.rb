@@ -85,13 +85,13 @@ Rails.application.configure do
     }
   }
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SG_USERNAME'],
-    :password => ENV['SG_PASSWORD'],
-    :domain => 'localhost:3000',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.mandrillapp.com',
+      port: '587',
+      domain: 'supper-skip.herokuapp.com',
+      user_name: ENV['MANDRILL_USERNAME'],
+      password: ENV['MANDRILL_PASSWORD'],
+      authentication: 'plain',
+      enable_starttls_auto: true
   }
 end

@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
+      @user.invite_lookup
       flash[:notice] = "Your account was successfully created!"
       session[:user_id] = @user.id
       redirect_to root_path
