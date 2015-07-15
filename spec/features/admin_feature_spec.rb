@@ -145,7 +145,7 @@ describe 'admin user', type: :feature do
 
   it "can modify an existing user's role" do
     nonadmin_user = create(:user, first_name: 'jojo', email: 'jojojo@example.com', password: 'asdf', password_confirmation: 'asdf', role:'user')
-    nonadmin_user2 = create(:user, first_name: 'drew', email: 'dr@example.com', password: 'pass', password_confirmation: 'pass', role: 'user')
+    create(:user, first_name: 'drew', email: 'dr@example.com', password: 'pass', password_confirmation: 'pass', role: 'user')
     nonadmin_user.restaurants << @restaurant
     restaurant_admin_dashboard_index_path(@restaurant)
     click_on 'View Current Users'
@@ -164,7 +164,6 @@ describe 'admin user', type: :feature do
       @order = Order.create(user_id: @user.id,
         items: [ @item ],
         status: 'ordered',
-        exchange: 'pickup',
         street_number: '123',
         street: 'Sesame St',
         city: 'Wall',

@@ -3,8 +3,8 @@ class Restaurant < ActiveRecord::Base
   has_many :orders
   has_many :items
   has_many :categories
-  has_many :user_restaurants
-  has_many :users, through: :user_restaurants
+  has_many :user_staff_roles
+  has_many :users, through: :user_staff_roles
 
   friendly_id :slug_candidates, use: :slugged
 

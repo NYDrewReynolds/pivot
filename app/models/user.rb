@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
-  has_many :user_restaurants
-  has_many :restaurants, through: :user_restaurants
+  has_many :user_staff_roles
+  has_many :restaurants, through: :user_staff_roles
   has_many :orders
+  has_many :staff_roles, through: :user_staff_roles
 
   has_secure_password
 

@@ -1,7 +1,6 @@
 records:
   - sprig_id: 1
     status: "ordered"
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 1).id %>'
     item_ids:
       - '<%= sprig_record(Item, 7).id %>'
@@ -9,7 +8,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 2
     status: 'ordered'
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 2).id %>'
     item_ids:
       - '<%= sprig_record(Item, 4).id %>'
@@ -17,7 +15,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 3
     status: 'completed'
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 3).id %>'
     item_ids:
       - '<%= sprig_record(Item, 9).id %>'
@@ -30,7 +27,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 1).id %>'
   - sprig_id: 4
     status: 'completed'
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 4).id %>'
     item_ids:
       - '<%= sprig_record(Item, 21).id %>'
@@ -38,7 +34,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
   - sprig_id: 5
     status: 'cancelled'
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 3).id %>'
     item_ids:
       - '<%= sprig_record(Item, 24).id %>'
@@ -46,7 +41,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 2).id %>'
   - sprig_id: 6
     status: 'cancelled'
-    exchange: 'pickup'
     user_id: '<%= sprig_record(User, 2).id %>'
     item_ids:
       - '<%= sprig_record(Item, 41).id %>'
@@ -55,7 +49,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
   - sprig_id: 7
     status: 'cancelled'
-    exchange: 'delivery'
     user_id: '<%= sprig_record(User, 1).id %>'
     item_ids:
       - '<%= sprig_record(Item, 46).id %>'
@@ -71,7 +64,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
   - sprig_id: 8
     status: 'cancelled'
-    exchange: 'delivery'
     user_id: '<%= sprig_record(User, 2).id %>'
     item_ids:
       - '<%= sprig_record(Item, 46).id %>'
@@ -87,7 +79,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 3).id %>'
   - sprig_id: 9
     status: 'cancelled'
-    exchange: 'delivery'
     user_id: '<%= sprig_record(User, 3).id %>'
     item_ids:
       - '<%= sprig_record(Item, 65).id %>'
@@ -99,7 +90,6 @@ records:
     restaurant_id: '<%= sprig_record(Restaurant, 4).id %>'
   - sprig_id: 10
     status: 'cancelled'
-    exchange: 'delivery'
     user_id: '<%= sprig_record(User, 4).id %>'
     item_ids:
       - '<%= sprig_record(Item, 69).id %>'
