@@ -36,9 +36,13 @@ class User < ActiveRecord::Base
       end
     end.flatten
   end
-  #
-  # def restaurant_role(restaurant)
-  #   user_staff_roles.where(restaurant_id: restaurant.id)
-  # end
+
+  def invite_lookup
+  invite = Invite.find_by(email: email)
+    if invite
+      user_staff_roles.create(restaurant_id: invite.restaurant_id, staff_role_id: invite.staff_role_id)
+      invite.destroy
+    end
+  end
 
 end

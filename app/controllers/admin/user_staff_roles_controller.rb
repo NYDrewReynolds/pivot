@@ -10,10 +10,9 @@ class Admin::UserStaffRolesController < Admin::BaseController
   end
 
   def create
-    binding.pry
     user = User.find_by(email: valid_params[:email])
+    role = StaffRole.find_by(name: valid_params[:staff_role])
     if user
-      role = StaffRole.find_by(name: valid_params[:staff_role])
       user.user_staff_roles.new(restaurant_id: owned_restaurant.id, staff_role: role)
       if user.save
         redirect_to restaurant_admin_dashboard_index_path
@@ -22,8 +21,10 @@ class Admin::UserStaffRolesController < Admin::BaseController
         render :new
       end
     else
-      render :new
-      #mailer goes here
+      Invite.create(email: valid_params[:email], restaurant_id: owned_restaurant.id, staff_role_id: role.id)
+      InviteMailer.invite_email(valid_params[:email], current_user, owned_restaurant).deliver_now
+      flash[:notice] = "Email sent!"
+      redirect_to restaurant_admin_dashboard_index_path
     end
   end
 
