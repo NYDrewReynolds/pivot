@@ -85,7 +85,7 @@ Rails.application.configure do
     }
   }
 
-  config.action_mailer.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
       address: 'smtp.mandrillapp.com',
       port: '587',
       domain: 'supper-skip.herokuapp.com',
