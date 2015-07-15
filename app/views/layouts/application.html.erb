@@ -2,21 +2,22 @@
 <html>
 <head>
   <title>DinnerDash</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'caussa_favicon.png' %>
   <script src="/assets/masonry.pkgd.min.js"></script>
-	<script src="/assets/imagesloaded.pkgd.min.js"></script>
+  <script src="/assets/imagesloaded.pkgd.min.js"></script>
 
 </head>
 
 
 <body>
 <%= render 'layouts/header' %>
+<div class="container">
 
-<%= yield %>
+  <%= yield %>
 
-
+</div>
 </body>
 </html>
