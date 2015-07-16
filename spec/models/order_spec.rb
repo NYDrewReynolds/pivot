@@ -31,11 +31,6 @@ RSpec.describe Order, :type => :model do
     expect(order).to_not be_valid
   end
 
-  it 'is invalid without a street' do
-    order.street = ''
-    expect(order).to_not be_valid
-  end
-
   it 'is invalid without a city' do
     order.city = ''
     expect(order).to_not be_valid

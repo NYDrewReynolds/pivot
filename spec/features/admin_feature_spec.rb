@@ -19,7 +19,7 @@ describe 'admin user', type: :feature do
 
   it 'has a role of admin' do
     visit '/'
-    expect(page).to have_content("Admin Dashboard")
+    expect(page).to have_content("Restaurant Dashboard")
   end
 
   it 'is redirected to an admin dashboard upon login' do
@@ -30,20 +30,20 @@ describe 'admin user', type: :feature do
     click_on 'login'
     expect(page).to have_content("Administrator")
     expect(current_path).to eq restaurant_admin_dashboard_index_path(@restaurant)
-    expect(page).to have_content "Site Administrator Dashboard"
+    expect(page).to have_content "#{@restaurant.name} Administrator Dashboard"
   end
 
   describe 'admin dashboard' do
 
     it 'has link to create new items' do
       visit restaurant_admin_dashboard_index_path(@restaurant)
-      expect(page).to have_content('Site Administrator Dashboard')
+      expect(page).to have_content("#{@restaurant.name} Administrator Dashboard")
       expect(page).to have_content('Create A New Menu Item')
     end
 
     it 'has link to manage users' do
       visit restaurant_admin_dashboard_index_path(@restaurant)
-      expect(page).to have_content('View Current Users')
+      expect(page).to have_content('View Current Staff')
     end
 
     it 'has link to manage orders' do
@@ -113,50 +113,45 @@ describe 'admin user', type: :feature do
     expect(page).to have_content("Active")
     click_on 'Save Changes'
     expect(page).to have_content("Your item has been successfully updated!")
-    click_link 'Admin Dashboard'
+    click_link 'Restaurant Dashboard'
     expect(page).to have_content"#{@item.active}"
     expect(page).to have_content"#{@item.id}"
   end
 
   it "can see all restaurant users" do
     restaurant_admin_dashboard_index_path(@restaurant)
-    click_on 'Create New User or Administrator'
+    click_on 'Add New Staff Member'
     expect(current_path).to eq new_restaurant_admin_user_staff_role_path(@restaurant)
-    expect(page).to have_content("Create A New User or Administrator")
+    expect(page).to have_content("Add A New Staff Member")
   end
 
-  xit "can create a new user with admin role" do
-    visit new_restaurant_admin_user_path(@restaurant)
-    fill_in 'First name', with: 'abc'
-    fill_in 'Last name', with: 'poptart'
-    fill_in 'Email', with: 'tartkins@example.com'
-    fill_in 'Password', with: "abc123"
-    fill_in 'Password confirmation', with: "abc123"
-    select 'admin', from: 'user_role'
-    click_on 'Create New User'
-    expect(current_path).to eq restaurant_admin_users_path(@restaurant)
-    expect(User.last.role).to eq 'admin'
+  it "can add a user as staff" do
+    StaffRole.create(name: "cook")
+    visit new_restaurant_admin_user_staff_role_path(@restaurant)
+    fill_in 'user_staff_role_email', with: 'tartkins@example.com'
+    click_on 'Add New Staff'
+    expect(current_path).to eq restaurant_admin_dashboard_index_path(@restaurant)
+    expect(page).to have_content("Email sent!")
   end
 
   it "can see all existing users" do
     visit restaurant_admin_user_staff_roles_path(@restaurant)
-    expect(page).to have_content("Current List of #{@restaurant.name} Users")
+    expect(page).to have_content("Current List of #{@restaurant.name} Staff")
   end
 
-  xit "can modify an existing user's role" do
+  it "can modify an existing user's role" do
+    staff_role = StaffRole.create(name: 'cook')
+    StaffRole.create(name: 'driver')
     nonadmin_user = create(:user, first_name: 'jojo', email: 'jojojo@example.com', password: 'asdf', password_confirmation: 'asdf', role:'user')
-    create(:user, first_name: 'drew', email: 'dr@example.com', password: 'pass', password_confirmation: 'pass', role: 'user')
-    nonadmin_user.restaurants << @restaurant
-    restaurant_admin_dashboard_index_path(@restaurant)
-    click_on 'View Current Users'
-    expect(current_path).to eq restaurant_admin_user_staff_roles_path(@restaurant)
-    expect(page).to_not have_content('drew')
-    click_on('user')
-    expect(current_path).to eq edit_restaurant_admin_user_staff_role_path(@restaurant, nonadmin_user)
-    select 'Admin', from: 'user_role'
+    user_staff_role = UserStaffRole.create(restaurant_id: @restaurant.id, user_id: nonadmin_user.id, staff_role_id: staff_role.id)
+    visit restaurant_admin_user_staff_roles_path(@restaurant)
+    expect(page).to have_content("jojojo@example.com")
+    click_on('Cook')
+    expect(current_path).to eq edit_restaurant_admin_user_staff_role_path(@restaurant, user_staff_role)
+    select 'driver', from: 'user_staff_role_staff_role'
     click_on 'Save Changes'
-    expect(User.find(nonadmin_user.id).role).to eq 'Admin'
-  end
+    expect(page).to have_content "Driver"
+      end
 
   describe 'admin order dashboard' do
 
