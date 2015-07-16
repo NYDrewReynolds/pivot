@@ -26,7 +26,7 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "Your item has been successfully added to the menu!"
     else
       redirect_to :back
-      flash[:notice] = "All fields are required to create a menu item, including category."
+      flash[:alert] = "All fields are required to create a menu item, including category."
     end
   end
 
@@ -48,7 +48,7 @@ class Admin::ItemsController < Admin::BaseController
       redirect_to restaurant_admin_item_path(owned_restaurant, @item)
     else
       redirect_to :back
-      flash[:notice] = "Error saving item."
+      flash[:alert] = "Error saving item."
     end
   end
 

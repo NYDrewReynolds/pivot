@@ -18,7 +18,7 @@ class RestaurantsController < ApplicationController
       flash[:notice] = "Your restaurant has been successfully created!"
     else
       redirect_to :back
-      flash[:notice] = "All fields are required to create a restaurant."
+      flash[:alert] = "All fields are required to create a restaurant."
     end
   end
 

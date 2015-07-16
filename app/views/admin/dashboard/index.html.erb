@@ -2,22 +2,21 @@
   <div class="background-color:red">
     <h1 class="text-center">Site Administrator Dashboard</h1>
   </div>
-  <h2>Manage Categories</h2>
-  <%= link_to "Create A New Category", new_restaurant_admin_category_path(owned_restaurant), class: "btn btn-grey4 btn-lg" %>
-  <%= link_to "Edit A Category", restaurant_admin_categories_path(owned_restaurant), class: "btn btn-grey4 btn-lg" %>
-
-  <h2>Manage Users</h2>
+   <h2>Manage Users</h2>
   <%= link_to "Create New User or Administrator", new_restaurant_admin_user_staff_role_path(owned_restaurant), class: "btn btn-grey3 btn-lg" %>
   <%= link_to "View Current Users", restaurant_admin_user_staff_roles_path(owned_restaurant), class: "btn btn-grey3 btn-lg" %>
-
-
-  <h2>Manage Menu Items</h2>
-  <%= link_to "Create A New Menu Item", new_restaurant_admin_item_path(owned_restaurant), class: "btn btn-grey2 btn-lg" %>
-  <h4>Click an item's title to edit or delete the item.</h4>
 
   <h2>Manage Orders</h2>
   <%= link_to "View Current Orders", restaurant_admin_orders_path(owned_restaurant), class: "btn btn-grey1 btn-lg" %>
   <h4>Click an orders's title to edit or delete the order.</h4>
+
+ <h2>Manage Categories</h2>
+  <%= link_to "Create A New Category", new_restaurant_admin_category_path(owned_restaurant), class: "btn btn-grey4 btn-lg" %>
+  <%= link_to "Edit A Category", restaurant_admin_categories_path(owned_restaurant), class: "btn btn-grey4 btn-lg" %>
+
+  <h2>Manage Menu Items</h2>
+  <%= link_to "Create A New Menu Item", new_restaurant_admin_item_path(owned_restaurant), class: "btn btn-grey2 btn-lg" %>
+  <h4>Click an item's title to edit or delete the item.</h4>
 
   <%= render 'update_menu' %>
 

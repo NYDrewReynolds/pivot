@@ -1,7 +1,7 @@
 class Admin::OrdersController < Admin::BaseController
-  before_action :set_order, except: [:index, :custom_show, :update_status]
+  before_action :set_order, except: [:index, :custom_show, :update]
   before_action :set_item_id, only: [:update_quantity, :remove_item]
-  skip_before_filter :verify_admin, only: [:update_status]
+  skip_before_filter :verify_admin, only: [:update]
 
   def index
     @orders       = owned_restaurant.orders.all
@@ -40,7 +40,7 @@ class Admin::OrdersController < Admin::BaseController
     redirect_to restaurant_admin_orders_path(owned_restaurant)
   end
 
-  def update_status
+  def update
     order = Order.find(params[:id])
     order.update_status(params[:event])
     flash[:notice] = "Order updated."

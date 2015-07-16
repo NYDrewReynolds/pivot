@@ -20,15 +20,15 @@ module OrderHelper
     link_to display, restaurant_admin_order_status_path(restaurant, order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
   end
 
-  def show_staff_buttons(order, restaurant)
+  def show_staff_buttons(restaurant, order)
     active_users_roles = current_user.user_staff_roles.find_by(restaurant_id: restaurant.id)
     if active_users_roles.staff_role.name == "cook"
       if order.status == "ready_for_prep" || order.status == "in_progress"
-        order_button_display(order, restaurant)
+        order_button_display(restaurant, order)
       end
     elsif active_users_roles.staff_role.name == "driver"
       if order.status == "ready_for_delivery" || order.status == "out_for_delivery"
-        order_button_display(order, restaurant)
+        order_button_display(restaurant, order)
       end
     end
   end
