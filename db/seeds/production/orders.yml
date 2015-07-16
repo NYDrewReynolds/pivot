@@ -1,4 +1,4 @@
-    records:
+records:
   - sprig_id: 1
     status: "ordered"
     user_id: '<%= sprig_record(User, 1).id %>'
