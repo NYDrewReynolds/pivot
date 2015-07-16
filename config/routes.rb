@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get '/users/restaurants', to: 'users#show_restaurants', as: 'user_restaurants'
   resources :orders, except: [:update, :edit, :destroy]
 
+  resources :charges, only: [:new, :create]
+
   get '/about' => 'welcome#about'
 
   get    '/login',  to: 'sessions#new'

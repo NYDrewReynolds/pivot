@@ -38,6 +38,7 @@ class CartController < ApplicationController
     end
   end
 
+
   private
 
     def set_item_id
