@@ -43,8 +43,13 @@ class Admin::OrdersController < Admin::BaseController
   def update
     order = Order.find(params[:id])
     order.update_status(params[:event])
-    flash[:notice] = "Order updated."
-    redirect_to :back
+    if current_user.is? :admin
+      flash[:notice] = "Order updated."
+      redirect_to restaurant_admin_orders_path(owned_restaurant)
+    else
+      flash[:notice] = "Order updated."
+      redirect_to restaurant_orders_path(order.restaurant)
+    end
   end
 
   def custom_show
