@@ -1,7 +1,10 @@
 <div class="container">
   <div class="background-color:red">
-    <h1 class="text-center">Site Administrator Dashboard</h1>
+    <h1 class="text-center"><%= owned_restaurant.name  %> Administrator Dashboard</h1>
   </div>
+
+  <h2>Edit Restuarant Details</h2>
+      <%= link_to "Edit Restaurant Details", edit_restaurant_path(owned_restaurant), class: "btn btn-grey3 btn-lg" %>
    <h2>Manage Users</h2>
   <%= link_to "Create New User or Administrator", new_restaurant_admin_user_staff_role_path(owned_restaurant), class: "btn btn-grey3 btn-lg" %>
   <%= link_to "View Current Users", restaurant_admin_user_staff_roles_path(owned_restaurant), class: "btn btn-grey3 btn-lg" %>
