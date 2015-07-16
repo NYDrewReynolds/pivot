@@ -19,7 +19,6 @@ class ChargesController < ApplicationController
         :description => 'Rails Stripe customer',
         :currency => 'usd'
     )
-      binding.pry
       ConfirmationMailer.confirmation_email(params[:stripeEmail]).deliver_now
       redirect_to user_orders_path
       cart.clear

@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
   def owned_restaurant
     @owned_restaurant ||= Restaurant.find_by(owner_id: current_user.id)
   end
-
   helper_method :owned_restaurant
 
 end
