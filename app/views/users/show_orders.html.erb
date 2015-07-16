@@ -18,7 +18,7 @@
       <td><%= (order.updated_at).to_formatted_s(:long) %></td>
       <td><%= order.restaurant.name %> </td>
       <td><%= print_price(order_price(order.items)) %> </td>
-      <td><%= order.status %> </td>
+      <td><%= order.status.humanize %> </td>
     </tr>
     <% end %>
   </tbody>

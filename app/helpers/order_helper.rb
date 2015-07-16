@@ -17,7 +17,7 @@ module OrderHelper
     display = order_statuses[order.status][0]
     next_status = order_statuses[order.status][1]
 
-    link_to display, restaurant_admin_order_status_path(restaurant, order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
+    link_to display, restaurant_admin_order_status_path(restaurant, order.id, next_status), method: :PATCH, class: 'btn btn-grey3 status-button'
   end
 
   def show_staff_buttons(restaurant, order)
