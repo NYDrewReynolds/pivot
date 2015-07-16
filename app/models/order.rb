@@ -18,6 +18,8 @@ class Order < ActiveRecord::Base
   validates :state, inclusion: states
   validates :zip, format: { with: /\A\d{5}\d*\z/ }
 
+  scope :active, -> { where.not(:status => ['completed', 'cancelled']) }
+
   aasm :column => :status do
     state :ordered, :initial => true
     state :ready_for_prep
@@ -70,6 +72,7 @@ class Order < ActiveRecord::Base
   end
 
   def update_status(event)
-    self.send(event) if valid_events.include?(event)
+    self.send(event + "!") if valid_events.include?(event)
   end
+
 end

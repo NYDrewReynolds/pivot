@@ -17,12 +17,33 @@ module OrderHelper
     display = order_statuses[order.status][0]
     next_status = order_statuses[order.status][1]
 
+    link_to display, restaurant_admin_order_status_path(owned_restaurant, order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
+  end
 
-    link_to display, restaurant_admin_order_status_path(owned_restaurant, @order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
+  def staff_button_display(order, restaurant)
+
+    display = order_statuses[order.status][0]
+    next_status = order_statuses[order.status][1]
+
+    link_to display, restaurant_admin_order_status_path(restaurant, order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
+  end
+
+  def show_staff_buttons(order, restaurant)
+    active_users_roles = current_user.user_staff_roles.find_by(restaurant_id: restaurant.id)
+    if active_users_roles.staff_role.name == "cook"
+      if order.status == "ready_for_prep" || order.status == "in_progress"
+        staff_button_display(order, restaurant)
+      end
+    elsif active_users_roles.staff_role.name == "driver"
+      if order.status == "ready_for_delivery" || order.status == "out_for_delivery"
+        staff_button_display(order, restaurant)
+      end
+    end
   end
 
   def order_statuses
-    {   'ordered' => ['Mark as Paid', 'pay'],
+    {
+        'ordered' => ['Mark as Paid', 'pay'],
         'ready_for_prep' => ['Mark as Preparing', 'preparing'],
         'in_progress' => ['Mark as Ready for Delivery', 'cooked'],
         'ready_for_delivery' => ['Mark as Out for Delivery', 'out'],

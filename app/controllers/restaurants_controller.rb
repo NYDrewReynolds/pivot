@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :update, :edit]
+  before_action :set_restaurant, only: [:show, :update, :edit, :show_orders]
 
   def show
   end
@@ -33,6 +33,7 @@ class RestaurantsController < ApplicationController
       render :edit
     end
   end
+
 
   private
 

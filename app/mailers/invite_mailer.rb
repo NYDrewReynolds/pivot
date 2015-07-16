@@ -1,6 +1,5 @@
 class InviteMailer < ApplicationMailer
 
-
   def invite_email(email_address, owner, restaurant)
     @restaurant = restaurant
     @owner = owner

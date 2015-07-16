@@ -1,56 +1,61 @@
 <div class="col-md-10 col-md-offset-1">
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3>Order <%= "#{@order.id}" %></h3></div>
-        <div class="panel-body">
-            <b>Customer Name:</b>
-            <div class="user-name">
-                <%= @order.user.full_name %>
-            </div>
-            <b>Customer Email Address:</b>
-            <div class="user-email">
-                <%= @order.user.email %>
-            </div>
-            <b>Order Status: </b>
-            <div class="status">
-                <%= @order.status.humanize %>
-            </div>
-            <b>Total Price: </b>
-            <div class="price">
-                <%= print_price(order_price(@order.items)) %>
-            </div>
-            <b>Last Updated At:</b>
-            <div class="updated">
-                <%= (@order.updated_at).to_formatted_s(:long) %>
-            </div>
-        </div>
-        <div class="panel-body">
-            <h3>Order Items</h3>
-            <table class="table">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3>Order <%= "#{@order.id}" %></h3></div>
+    <div class="panel-body">
+      <b>Customer Name:</b>
+
+      <div class="user-name">
+        <%= @order.user.full_name %>
+      </div>
+      <b>Customer Email Address:</b>
+
+      <div class="user-email">
+        <%= @order.user.email %>
+      </div>
+      <b>Order Status: </b>
+
+      <div class="status">
+        <%= @order.status.humanize %>
+      </div>
+      <b>Total Price: </b>
+
+      <div class="price">
+        <%= print_price(order_price(@order.items)) %>
+      </div>
+      <b>Last Updated At:</b>
+
+      <div class="updated">
+        <%= (@order.updated_at).to_formatted_s(:long) %>
+      </div>
+    </div>
+    <div class="panel-body">
+      <h3>Order Items</h3>
+      <table class="table">
 
 
-                <% @order_items.each do |item, quantity| %>
-                    <tbody>
-                        <tr id='<%= "item_#{item.id}" %>'>
-                            <td><%= link_to item.title, restaurant_admin_item_path(owned_restaurant, item) %></td>
-                            <td><%= form_tag(restaurant_admin_order_update_quantity_path(owned_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
-                                <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
-                                <%= submit_tag "Update Quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %></td>
-                                <td><%= print_price(item.price) %></td>
-                            <% end %>
-                            <td><%= link_to 'Remove Item', restaurant_admin_order_remove_item_path(owned_restaurant,@order, item), class: "btn btn-grey1 btn-sm", id: "remove_item", remote: true, method: :PATCH %></td>
-                        </tr>
-                    </tbody>
+        <% @order_items.each do |item, quantity| %>
+            <tbody>
+            <tr id='<%= "item_#{item.id}" %>'>
+              <td><%= link_to item.title, restaurant_admin_item_path(owned_restaurant, item) %></td>
+              <td><%= form_tag(restaurant_admin_order_update_quantity_path(owned_restaurant, @order, item), method: :patch, remote: true, style: 'display:inline;') do %>
+                    <%= number_field_tag "quantity", quantity, min: 0, class: "text-size" %>
+                    <%= submit_tag "Update Quantity", class: "btn btn-grey3 btn-sm", id: 'update_quantity' %></td>
+                    <td><%= print_price(item.price) %></td>
                 <% end %>
+                <td><%= link_to 'Remove Item', restaurant_admin_order_remove_item_path(owned_restaurant, @order, item), class: "btn btn-grey1 btn-sm", id: "remove_item", remote: true, method: :PATCH %></td>
+                </tr>
+            </tbody>
+        <% end %>
 
 
-            </table>
+      </table>
       </br>
       <div class="status-buttons">
-          <%= order_button_display(@order) %>
-          <%= link_to "Cancel", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'cancel'), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button' if @order.may_cancel? %>
+        <%= order_button_display(@order) %>
+        <%= link_to "Cancel", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'cancel'), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button' if @order.may_cancel? %>
       </div>
-        </div>
     </div>
-    <%= link_to "<< Return to Current Order Dashboard", restaurant_admin_orders_path(owned_restaurant), class: "btn btn-grey4"%>
+  </div>
+  <%= link_to "<< Return to Current Order Dashboard", restaurant_admin_orders_path(owned_restaurant), class: "btn btn-grey4" %>
 </div>
 </div>

@@ -1,0 +1,17 @@
+<h2>Restaurants Where You Work</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Restaurant Name</th>
+    <th>Role</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @user_staff_roles.each do |user_staff_role| %>
+      <tr>
+        <td><%= link_to user_staff_role.restaurant.name, restaurant_orders_path(user_staff_role.restaurant) %></td>
+        <td><%= user_staff_role.staff_role.name %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
