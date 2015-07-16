@@ -51,7 +51,7 @@
       </table>
       </br>
       <div class="status-buttons">
-        <%= order_button_display(@order) %>
+        <%= order_button_display(owned_restaurant, @order) %>
         <%= link_to "Cancel", restaurant_admin_order_status_path(owned_restaurant, @order.id, 'cancel'), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button' if @order.may_cancel? %>
       </div>
     </div>

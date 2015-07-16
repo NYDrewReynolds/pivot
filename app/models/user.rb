@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def is?( requested_role )
-    self.role.to_s == requested_role.to_s || self.staff_roles.pluck(:name).include?(requested_role)
+    self.role.to_s == requested_role.to_s
   end
 
   def ordered_items
