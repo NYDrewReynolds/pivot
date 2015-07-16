@@ -21,7 +21,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug_name = self.name unless self.slug_name
+    self.slug_name = self.name unless self.slug_name.empty?
   end
 
 end
