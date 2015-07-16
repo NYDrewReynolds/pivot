@@ -10,9 +10,8 @@ class OrdersController < ApplicationController
 
   def create
     OrderParser.new.parse(cart, current_user, order_params)
-    cart.clear
     flash[:notice] = "Your order has been successfully created!"
-    redirect_to user_orders_path
+    redirect_to new_charge_path
   rescue ActiveRecord::RecordInvalid => e
     flash.now[:errors] = e.message
     render :new

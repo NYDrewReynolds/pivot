@@ -1,0 +1,17 @@
+<h1>Complete Payment</h1>
+<center>
+
+<%= form_tag charges_path do %>
+    <article>
+      <label class="amount">
+        <span>Order Amount: <%= number_to_currency @amount %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="FüD"
+            data-email="<%= current_user.email %>"
+            data-amount="<%= @amount * 100 %>"></script>
+<% end %>
+</center>
