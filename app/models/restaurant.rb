@@ -21,7 +21,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug_name = self.name if self.slug_name.empty?
+    self.slug_name = self.name.paramaterize if self.slug_name.empty?
   end
 
 end
