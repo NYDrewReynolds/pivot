@@ -37,5 +37,5 @@ class Cart
     items.map { |item_id| prices << Item.find(item_id).price.to_i }
     prices.reduce(:+)
   end
-  
+
 end
