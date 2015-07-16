@@ -12,15 +12,7 @@ module OrderHelper
     to_datetime(time)
   end
 
-  def order_button_display(order)
-
-    display = order_statuses[order.status][0]
-    next_status = order_statuses[order.status][1]
-
-    link_to display, restaurant_admin_order_status_path(owned_restaurant, order.id, next_status), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button'
-  end
-
-  def staff_button_display(order, restaurant)
+  def order_button_display(restaurant, order)
 
     display = order_statuses[order.status][0]
     next_status = order_statuses[order.status][1]
@@ -32,11 +24,11 @@ module OrderHelper
     active_users_roles = current_user.user_staff_roles.find_by(restaurant_id: restaurant.id)
     if active_users_roles.staff_role.name == "cook"
       if order.status == "ready_for_prep" || order.status == "in_progress"
-        staff_button_display(order, restaurant)
+        order_button_display(order, restaurant)
       end
     elsif active_users_roles.staff_role.name == "driver"
       if order.status == "ready_for_delivery" || order.status == "out_for_delivery"
-        staff_button_display(order, restaurant)
+        order_button_display(order, restaurant)
       end
     end
   end

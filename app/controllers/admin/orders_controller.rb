@@ -1,6 +1,7 @@
 class Admin::OrdersController < Admin::BaseController
   before_action :set_order, except: [:index, :custom_show, :update_status]
   before_action :set_item_id, only: [:update_quantity, :remove_item]
+  skip_before_filter :verify_admin, only: [:update_status]
 
   def index
     @orders       = owned_restaurant.orders.all

@@ -34,7 +34,7 @@
         <td><%= order.status.humanize %> </td>
 
         <td class="status-buttons">
-          <%= order_button_display(order) unless order.status == "completed" || order.status == "cancelled" %>
+          <%= order_button_display(owned_restaurant, order) unless order.status == "completed" || order.status == "cancelled" %>
           <%= link_to "Cancel", restaurant_admin_order_status_path(owned_restaurant, order.id, 'cancel'), method: :PATCH, remote: true, class: 'btn btn-grey3 status-button' if order.may_cancel? %>
         </td>
 
