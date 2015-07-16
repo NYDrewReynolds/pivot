@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :restaurants, except: [:index] do
     resources :items, only: [:show]
+    get 'orders/', to:'users#show_restaurant_orders', as: 'orders'
     namespace :admin do
       resources :dashboard, only: [:index]
       resources :items, except: [:index]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :show]
   get '/users/orders', to: 'users#show_orders', as: 'user_orders'
+  get '/users/restaurants', to: 'users#show_restaurants', as: 'user_restaurants'
   resources :orders, except: [:update, :edit, :destroy]
 
   get '/about' => 'welcome#about'

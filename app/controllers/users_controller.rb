@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     @orders = Order.where(user_id: current_user.id)
   end
 
+  def show_restaurants
+    @user_staff_roles = current_user.user_staff_roles
+  end
+
+  def show_restaurant_orders
+    @restaurant = Restaurant.friendly.find(params[:restaurant_id])
+  end
+
   private
 
     def user_params

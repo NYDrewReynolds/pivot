@@ -1,0 +1,25 @@
+<h2>Orders for <%= @restaurant.name %></h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Order Id</th>
+    <th>Creation Date</th>
+    <th>Total Price</th>
+    <th>Order Status</th>
+    <th>Update Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @restaurant.orders.active.each do |order| %>
+      <tr>
+        <td><%= link_to order.id, order_path(order) %></td>
+        <td><%= (order.created_at).to_formatted_s(:long) %></td>
+        <td><%= print_price(order_price(order.items)) %> </td>
+        <td><%= order.status.humanize %> </td>
+        <td class="status-buttons">
+        <%= show_staff_buttons(order, @restaurant) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
