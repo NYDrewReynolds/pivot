@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     flash[:notice] = "Your order has been successfully created!"
     redirect_to new_charge_path
   rescue ActiveRecord::RecordInvalid => e
-    flash.now[:errors] = e.message
+    flash.now[:error] = e.message
     render :new
   end
 

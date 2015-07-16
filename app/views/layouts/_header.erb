@@ -19,11 +19,13 @@
                             <%= link_to "Home", root_path %>
                         </li>
                         <li class="active">
-                            <%= link_to "About", about_path %>
+                            <% if current_user && current_user.is?('admin') %>
+                                <%= link_to owned_restaurant.name, restaurant_path(owned_restaurant) %>
+                            <% end %>
                         </li>
                         <% if current_user && current_user.is?('admin') %>
                             <li class="active">
-                                <%= link_to "Admin Dashboard", restaurant_admin_dashboard_index_path(owned_restaurant) %>
+                                <%= link_to "Restuarant Dashboard", restaurant_admin_dashboard_index_path(owned_restaurant) %>
                             </li>
                         <% end %>
                     </ul>

@@ -12,7 +12,6 @@ class Order < ActiveRecord::Base
   validates :user, presence: true
   validates :status, inclusion: { in: :statuses }
   validates :street_number,
-    :street,
     :city,
     presence: true
   validates :state, inclusion: states
