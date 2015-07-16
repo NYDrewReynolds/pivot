@@ -19,7 +19,7 @@ class Admin::CategoriesController < Admin::BaseController
 			flash[:notice] = "Your category has been successfully created!"
 			redirect_to restaurant_admin_dashboard_index_path(owned_restaurant)
 		else
-			flash[:notice] = "Error saving category"
+			flash[:alert] = "Error saving category"
 			redirect_to :back
 		end
 	end

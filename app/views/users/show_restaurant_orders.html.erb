@@ -17,7 +17,7 @@
         <td><%= print_price(order_price(order.items)) %> </td>
         <td><%= order.status.humanize %> </td>
         <td class="status-buttons">
-        <%= show_staff_buttons(order, @restaurant) %>
+        <%= show_staff_buttons(@restaurant, order) %>
         </td>
       </tr>
   <% end %>

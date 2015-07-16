@@ -39,7 +39,7 @@ class Admin::UserStaffRolesController < Admin::BaseController
       redirect_to restaurant_admin_user_staff_roles_path
     else
       redirect_to :back
-      flash[:notice] = "Error saving your new information."
+      flash[:alert] = "Error saving your new information."
     end
   end
 

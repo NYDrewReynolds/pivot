@@ -14,6 +14,18 @@ class Ability
       can :read, Item
       can :read, Category
       can :read, Order
+    elsif user.is? :cook
+      can :update, Order, restaurants: [ user.restaurants ]
+      can :read, Item
+      can :read, Category
+      can :create, Order
+      can :manage, User, id: user.id
+     elsif user.is? :driver
+      can :update, Order, restaurant: [ user.restaurants ]
+      can :read, Item
+      can :read, Category
+      can :create, Order
+      can :manage, User, id: user.id
     elsif user.is? :user
       can :read, Item
       can :read, Category
